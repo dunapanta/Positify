@@ -1,0 +1,30 @@
+{
+  "language": "english",
+  "short_iso": "en",
+  "onboarding": {
+    "title1": "Welcome",
+    "subtitle1": "Create stories with the help of AI",
+    "title2": "Imagine",
+    "subtitle2": "Explore Creative and What if modes",
+    "title3": "Listen",
+    "subtitle3": "Play your stories in audio",
+    "title4": "Get inspired",
+    "subtitle4": "Discover new ways to create stories",
+    "gpt1": "Create",
+    "gpt2": "Imagine",
+    "gpt3": "Have fun",
+    "gpt4": "Listen",
+    "gpt5": "Get inspired",
+    "nextButton": "Next",
+    "skipButton": "Skip",
+    "beginButton": "Start",
+    "usernameTitle": "Welcome",
+    "usernameSubtitle": "What's your name?",
+    "usernamePlaceholder": "Enter your name",
+    "usernameErrorEmpty": "Please enter your name",
+    "usernameErrorLength": "Name must be between 3 and 10 characters",
+    "usernameButton": "Get started",
+    "usernameErrorTitle": "Network error",
+    "usernameErrorSubtitle": "An error occurred, please try again"
+  }
+}

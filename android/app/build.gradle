@@ -86,9 +86,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.positify'
+    namespace 'dev.dunapant.positify'
     defaultConfig {
-        applicationId 'com.anonymous.positify'
+        applicationId 'dev.dunapant.positify'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
