@@ -76,8 +76,8 @@ export const Animation2 = ({ animate }: Props) => {
                     ...styles.image,
                     top: '40%',
                     left: '40%',
-                    width: 100,
-                    height: 150,
+                    width: SIZES.width * 0.25,
+                    height: SIZES.width * 0.38,
                     zIndex: 1,
                 }}
             />
@@ -94,8 +94,8 @@ export const Animation2 = ({ animate }: Props) => {
 const styles = StyleSheet.create({
     image: {
         position: 'absolute',
-        width: 90,
-        height: 120,
+        width: SIZES.width * 0.228,
+        height: SIZES.width * 0.35,
         zIndex: 0,
         borderRadius: SIZES.radius,
     },
