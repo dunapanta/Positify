@@ -15,11 +15,6 @@ let onBoard = [
         title: "onboarding.title3",
         sub_title: "onboarding.subtitle3",
     },
-    {
-        id: 3,
-        title: "onboarding.title4",
-        sub_title: "onboarding.subtitle4",
-    },
 ];
 
 

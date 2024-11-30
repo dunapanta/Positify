@@ -49,7 +49,7 @@ function RootLayoutNav() {
   return (
     <I18nextProvider i18n={i18n}>
       <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
         <Stack.Screen name="onboarding" options={{ headerShown: false }} />
         {/* <Stack.Screen name="username" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}

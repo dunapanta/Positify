@@ -19,7 +19,6 @@ import {
     Animation1,
     Animation2,
     Animation3,
-    Animation4,
     Footer,
 } from "@/src/components/onBoard";
 import { IconButton, SelectLangModal } from "@/src/components/shared";
@@ -41,6 +40,7 @@ const Page = () => {
 
     const selectLangModalRef = useRef<any>(null);
     const openLangModal = () => {
+        console.log("openLangModal");
         selectLangModalRef.current.openModal();
     };
 
@@ -139,7 +139,7 @@ const Page = () => {
                                     {index === 0 && <Animation1 />}
                                     {index === 1 && <Animation2 animate={animation2} />}
                                     {index === 2 && <Animation3 />}
-                                    {index === 3 && <Animation4 />}
+
                                 </View>
                                 {/* Title & description */}
                                 <View
