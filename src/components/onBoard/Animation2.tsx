@@ -31,7 +31,7 @@ export const Animation2 = ({ animate }: Props) => {
     useEffect(() => {
         if (animate) {
             motiImage1.animateTo({
-                top: SIZES.height * 0.09,
+                top: SIZES.height * 0.11,
                 left: SIZES.height * 0.09,
             });
             motiImage3.animateTo({
