@@ -6,7 +6,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Image, Switch, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
+import * as Haptics from "expo-haptics";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +17,6 @@ import { useStorage } from "@/src/store";
 export const SelectLangModal = forwardRef((props, ref) => {
   const { t } = useTranslation();
   const { language, setLanguage } = useStorage();
-  const [isEnabled, setIsEnabled] = useState(false);
 
   const snapPoints = useMemo(() => ["60%"], []);
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -76,13 +76,24 @@ export const SelectLangModal = forwardRef((props, ref) => {
             {t("langModal.language")}
           </Text>
           {/* Option Spanish */}
-          <View
+          <Pressable
             style={{
+              backgroundColor: language === "es" ? COLORS.successAnswer : COLORS.white,
+              borderColor: language === "es" ? COLORS.successAnswerDark : COLORS.white,
+              marginVertical: SIZES.margin / 2,
+              marginHorizontal: SIZES.margin,
+              borderWidth: 2,
+              borderRadius: SIZES.radius + 2,
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
               paddingHorizontal: SIZES.padding,
             }}
+            onPress={() => {
+              Haptics.selectionAsync();
+              setLanguage("es")
+            }
+            }
           >
             <View
               style={{
@@ -109,28 +120,33 @@ export const SelectLangModal = forwardRef((props, ref) => {
                 {t("langModal.es")}
               </Text>
             </View>
-            <Switch
-              trackColor={{
-                false: COLORS.darkBackground,
-                true: COLORS.primaryDark,
-              }}
-              thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-              ios_backgroundColor={COLORS.secondary}
-              onValueChange={() => setLanguage("es")}
-              value={language === "es"}
+            {language === "es" && <Image
+              source={icons.check}
+              tintColor={COLORS.successAnswerDark}
+              resizeMode="contain"
               style={{
-                padding: 10,
-                transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
+                width: 30,
+                height: 30,
               }}
-            />
-          </View>
+            />}
+          </Pressable>
           {/* Option English */}
-          <View
+          <Pressable
             style={{
+              backgroundColor: language === "en" ? COLORS.successAnswer : COLORS.white,
+              borderColor: language === "en" ? COLORS.successAnswerDark : COLORS.white,
+              marginVertical: SIZES.margin / 2,
+              marginHorizontal: SIZES.margin,
+              borderWidth: 2,
+              borderRadius: SIZES.radius + 2,
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
               paddingHorizontal: SIZES.padding,
+            }}
+            onPress={() => {
+              Haptics.selectionAsync()
+              setLanguage("en")
             }}
           >
             <View
@@ -158,21 +174,16 @@ export const SelectLangModal = forwardRef((props, ref) => {
                 {t("langModal.us")}
               </Text>
             </View>
-            <Switch
-              trackColor={{
-                false: COLORS.secondary,
-                true: COLORS.primaryDark,
-              }}
-              thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-              ios_backgroundColor={COLORS.secondary}
-              onValueChange={() => setLanguage("en")}
-              value={language === "en"}
+            {language === "en" && <Image
+              source={icons.check}
+              tintColor={COLORS.successAnswerDark}
+              resizeMode="contain"
               style={{
-                padding: 10,
-                transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
+                width: 30,
+                height: 30,
               }}
-            />
-          </View>
+            />}
+          </Pressable>
         </View>
       </View>
     </BottomSheet>

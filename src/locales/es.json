@@ -2,17 +2,12 @@
   "language": "spanish",
   "short_iso": "es",
   "onboarding": {
-    "title1": "Bienvenido",
-    "subtitle1": "Crea tus historias con la ayuda de la IA",
-    "title2": "Imagina",
-    "subtitle2": "Explora el modo Creativo y What if",
-    "title3": "Escucha",
-    "subtitle3": "Reproduce tus historias en audio",
-    "gpt1": "Crea",
-    "gpt2": "Imagina",
-    "gpt3": "Diviertete",
-    "gpt4": "Escucha",
-    "gpt5": "Inspírate",
+    "title1": "Sé Tu Mejor Versión",
+    "subtitle1": "Empodérate con afirmaciones diarias",
+    "title2": "Escucha y Crece",
+    "subtitle2": "Alimenta tu mente y potencia tu bienestar",
+    "title3": "Crea tus Afirmaciones",
+    "subtitle3": "Dale voz a tus intenciones y deseos",
     "nextButton": "Siguiente",
     "skipButton": "Saltar",
     "beginButton": "Iniciar",
@@ -24,5 +19,11 @@
     "usernameButton": "Empezar",
     "usernameErrorTitle": "Error de red",
     "usernameErrorSubtitle": "Ocurrió un error, por favor intenta de nuevo"
+  },
+  "langModal": {
+    "language": "Idioma",
+    "us": "Inglés",
+    "es": "Español",
+    "voice": "Voz"
   }
 }

@@ -4,6 +4,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import i18n from "@/src/locales/i18n";
 import { useStorage } from "@/src/store";
@@ -47,13 +49,17 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <I18nextProvider i18n={i18n}>
-      <Stack>
-        {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
-        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="username" options={{ headerShown: false }} />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+
+      <I18nextProvider i18n={i18n}>
+        <Stack>
+          {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
+          <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+          {/* <Stack.Screen name="username" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-      </Stack>
-    </I18nextProvider>
+        </Stack>
+      </I18nextProvider>
+
+    </GestureHandlerRootView>
   );
 }

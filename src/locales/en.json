@@ -2,17 +2,12 @@
   "language": "english",
   "short_iso": "en",
   "onboarding": {
-    "title1": "Welcome",
-    "subtitle1": "Create stories with the help of AI",
-    "title2": "Imagine",
-    "subtitle2": "Explore Creative and What if modes",
-    "title3": "Listen",
-    "subtitle3": "Play your stories in audio",
-    "gpt1": "Create",
-    "gpt2": "Imagine",
-    "gpt3": "Have fun",
-    "gpt4": "Listen",
-    "gpt5": "Get inspired",
+    "title1": "Be your best version",
+    "subtitle1": "Empower yourself with daily affirmations",
+    "title2": "Listen and Grow",
+    "subtitle2": "Nourish your mind and boost your well-being",
+    "title3": "Create your Affirmations",
+    "subtitle3": "Give voice to your intentions and desires",
     "nextButton": "Next",
     "skipButton": "Skip",
     "beginButton": "Start",
@@ -24,5 +19,11 @@
     "usernameButton": "Get started",
     "usernameErrorTitle": "Network error",
     "usernameErrorSubtitle": "An error occurred, please try again"
+  },
+  "langModal": {
+    "language": "Language",
+    "us": "English",
+    "es": "Spanish",
+    "voice": "Voice"
   }
 }
