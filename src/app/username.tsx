@@ -171,7 +171,7 @@ const Username = () => {
                     </View>
 
                     {/* Input Username */}
-                    <View style={{ paddingVertical: SIZES.padding }}>
+                    <View style={{ paddingVertical: SIZES.padding+10 }}>
                         <Controller
                             control={control}
                             render={({ field }) => {
@@ -212,7 +212,7 @@ const Username = () => {
                         )}
                     </View>
                     {/* Button */}
-                    <View
+                    {/*  <View
                         style={{
                             flexDirection: "row",
                             height: SIZES.buttonContainerHeight,
@@ -235,9 +235,43 @@ const Username = () => {
                             disabled={loading}
                         />
                     </View>
-                    <View style={{ marginTop: SIZES.padding }} />
+                    <View style={{ marginTop: SIZES.padding }} /> */}
                 </ScrollView>
             </KeyboardAwareScrollView>
+            <View
+                style={{
+                    marginTop: SIZES.margin,
+                    height: SIZES.height * 0.14,
+                    backgroundColor: COLORS.primaryLighter,
+                    alignItems: "center",
+                    paddingHorizontal: SIZES.padding,
+
+                }}
+            >
+                <View
+                    style={{
+                        flexDirection: "row",
+                        height: SIZES.buttonContainerHeight,
+                    }}
+                >
+                    <TextButton
+                        label={t("onboarding.usernameButton")}
+                        contentContainerStyle={{
+                            flex: 1,
+                            borderRadius: SIZES.radius,
+                            backgroundColor: loading
+                                ? COLORS.secondaryLighter
+                                : COLORS.secondaryDarker,
+                        }}
+                        labelStyle={{
+                            ...FONTS.h3,
+                            color: COLORS.primaryLighter,
+                        }}
+                        onPress={handleSubmit(onSubmit)}
+                        disabled={loading}
+                    />
+                </View>
+            </View>
         </View>
     );
 };
