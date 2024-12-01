@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Image, View, Dimensions } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 import { useDynamicAnimation, MotiImage } from 'moti';
 import { images, SIZES } from '@/src/constants';
 
@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const Animation2 = ({ animate }: Props) => {
+    console.log("DIMENSIONS",SIZES.height);
     const motiImage1 = useDynamicAnimation(() => ({
         top: SIZES.height * 0.19,
         left: SIZES.height * 0.25,
@@ -35,8 +36,8 @@ export const Animation2 = ({ animate }: Props) => {
                 left: SIZES.height * 0.09,
             });
             motiImage3.animateTo({
-                top: SIZES.height * 0.15,
-                left: SIZES.height * 0.31,
+                top: SIZES.height < 1000 ? SIZES.height * 0.15 : SIZES.height * 0.1,
+                left: SIZES.height < 1000 ? SIZES.height * 0.31 : SIZES.height * 0.5,
             });
             motiImage4.animateTo({
                 top: SIZES.height * 0.4,
@@ -44,7 +45,7 @@ export const Animation2 = ({ animate }: Props) => {
             });
             motiImage5.animateTo({
                 top: SIZES.height * 0.4,
-                left: SIZES.height * 0.3,
+                left: SIZES.height < 1000 ? SIZES.height * 0.3 : SIZES.height * 0.5,
             });
 
         } else {
