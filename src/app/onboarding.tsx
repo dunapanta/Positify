@@ -36,11 +36,10 @@ const Page = () => {
     //SVG
     const controllX = SIZES.width / 2; //Control center points x coordinate
 
+    //Language
     const { language } = useStorage();
-
     const selectLangModalRef = useRef<any>(null);
     const openLangModal = () => {
-        console.log("openLangModal");
         selectLangModalRef.current.openModal();
     };
 

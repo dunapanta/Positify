@@ -8,7 +8,7 @@ import {
     Image,
     Button,
 } from "react-native";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { router } from "expo-router";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -18,9 +18,10 @@ import Lottie from 'lottie-react-native';
 import Svg, { Path } from "react-native-svg";
 import Toast from "react-native-toast-message";
 
-import { COLORS, FONTS, SIZES, images } from "@/src/constants";
+import { COLORS, FONTS, SIZES, icons, images } from "@/src/constants";
 import TextButton from "@/src/components/shared/TextButton";
 import { useStorage } from "@/src/store";
+import { IconButton, SelectLangModal } from "../components/shared";
 
 
 type FormValues = {
@@ -42,6 +43,13 @@ const Username = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<FormValues>();
+
+    //Language
+    const { language } = useStorage();
+    const selectLangModalRef = useRef<any>(null);
+    const openLangModal = () => {
+        selectLangModalRef.current.openModal();
+    };
 
     const onSubmit = async (data: FormValues) => {
         /* setUsername(data.username);
@@ -79,6 +87,37 @@ const Username = () => {
                 barStyle="dark-content"
                 backgroundColor="transparent"
             />
+
+            {/* Language */}
+            <View
+                style={{
+                    zIndex: 10,
+                    position: "absolute",
+                    backgroundColor: "transparent",
+                    flexDirection: "row",
+                    top: top + 10,
+                    right: 40,
+                }}
+            >
+                <IconButton
+                    iconStyle={{
+                        width: 28,
+                        height: 28,
+                    }}
+                    containerStyle={{
+                        width: 50,
+                        height: 50,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderWidth: 1,
+                        borderColor: COLORS.primaryDarker,
+                        borderRadius: 25,
+                        backgroundColor: COLORS.primaryLighter,
+                    }}
+                    onPress={openLangModal}
+                    icon={language === "es" ? icons.es : icons.us}
+                />
+            </View>
 
             <View style={{ overflow: "hidden" }}>
                 <Image
@@ -171,7 +210,7 @@ const Username = () => {
                     </View>
 
                     {/* Input Username */}
-                    <View style={{ paddingVertical: SIZES.padding+10 }}>
+                    <View style={{ paddingVertical: SIZES.padding + 10 }}>
                         <Controller
                             control={control}
                             render={({ field }) => {
@@ -272,6 +311,8 @@ const Username = () => {
                     />
                 </View>
             </View>
+            {/* Bottom Sheet Lang */}
+            <SelectLangModal ref={selectLangModalRef} />
         </View>
     );
 };
