@@ -16,6 +16,8 @@ export const COLORS = {
     successAnswerDark: '#008a0a',
     white: "#FFFFFF",
     darkBackground: "#000000",
+    wrongInputColor: "#8a2d06",
+    wrongInputColorLight: "#914d30",
 
 };
 
@@ -60,18 +62,18 @@ export const SIZES = {
                     : height > 740
                         ? height * 0.04
                         : height * 0.03,
-    onBoardUsernameCurve:
+    homeCurve:
         height > 1300
-            ? height * 0.45
+            ? height * 0.35
             : height > 1100
-                ? height * 0.4
+                ? height * 0.32
                 : height > 900
-                    ? height * 0.34
+                    ? height * 0.242
                     : height > 850
-                        ? height * 0.261
+                        ? height * 0.235
                         : height > 740
-                            ? height * 0.275
-                            : height * 0.31,
+                            ? height * 0.228
+                            : height * 0.247,
 };
 
 export const FONTS = {
