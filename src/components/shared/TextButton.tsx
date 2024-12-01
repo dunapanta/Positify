@@ -24,6 +24,7 @@ export const TextButton = ({
                     alignItems: 'center',
                     justifyContent: 'center',
                     backgroundColor: pressed ? COLORS.primaryDark : COLORS.primary,
+                    opacity: pressed ? 0.8 : 1,
                     ...contentContainerStyle,
                 },
             ]}
