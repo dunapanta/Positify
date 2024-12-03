@@ -52,6 +52,7 @@ const Username = () => {
     };
 
     const onSubmit = async (data: FormValues) => {
+        router.replace("/questions");
         /* setUsername(data.username);
         router.replace("/(tabs)/home"); */
         /*  try {

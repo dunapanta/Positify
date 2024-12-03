@@ -18,7 +18,17 @@
     "usernameErrorLength": "El nombre debe tener entre 3 y 10 caracteres",
     "usernameButton": "Empezar",
     "usernameErrorTitle": "Error de red",
-    "usernameErrorSubtitle": "Ocurrió un error, por favor intenta de nuevo"
+    "usernameErrorSubtitle": "Ocurrió un error, por favor intenta de nuevo",
+    "question1": "¿Cuál es tu rango de edad?",
+    "question1Option1": "12-17 años",
+    "question1Option2": "18-24 años",
+    "question1Option3": "25-34 años",
+    "question1Option4": "35-44 años",
+    "question1Option5": "45+ años",
+    "question2": "¿Cuál es tu experiencia con afirmaciones?",
+    "question2Option1": "Soy principiante",
+    "question2Option2": "Soy principiante",
+    "question2Option3": "Las uso frecuentemente"
   },
   "langModal": {
     "language": "Idioma",

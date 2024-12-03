@@ -18,7 +18,17 @@
     "usernameErrorLength": "Name must be between 3 and 10 characters",
     "usernameButton": "Get started",
     "usernameErrorTitle": "Network error",
-    "usernameErrorSubtitle": "An error occurred, please try again"
+    "usernameErrorSubtitle": "An error occurred, please try again",
+    "question1": "What is your age range?",
+    "question1Option1": "12-17 years old",
+    "question1Option2": "18-24 years old",
+    "question1Option3": "25-34 years old",
+    "question1Option4": "35-44 years old",
+    "question1Option5": "45+ years old",
+    "question2": "What is your experience with affirmations?",
+    "question2Option1": "I am a beginner",
+    "question2Option2": "I have tried a few times",
+    "question2Option3": "I use them frequently"
   },
   "langModal": {
     "language": "Language",
