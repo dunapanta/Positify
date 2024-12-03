@@ -1,3 +1,4 @@
+import { OnBoardQuestionsInterface } from "../interfaces/onBoardInterfaces";
 
 let onBoard = [
     {
@@ -17,7 +18,7 @@ let onBoard = [
     },
 ];
 
-let onBoardQuestions = [
+let onBoardQuestions: OnBoardQuestionsInterface[] = [
     {
         id: 1,
         question: "onboarding.question1",
@@ -43,7 +44,7 @@ let onBoardQuestions = [
                 hasImage: false,
             },
         ],
-        "multiple": false
+        multiple: false
     },
     {
         id: 2,
@@ -53,21 +54,26 @@ let onBoardQuestions = [
                 id: 1,
                 text: "onboarding.question2Option1",
                 hasImage: true,
+                image: require('@/src/assets/images/ui/hatch.png'),
             },
             {
                 id: 2,
                 text: "onboarding.question2Option2",
                 hasImage: true,
+                image: require('@/src/assets/images/ui/seedling.png'),
             },
             {
                 id: 3,
                 text: "onboarding.question2Option3",
                 hasImage: true,
+                image: require('@/src/assets/images/ui/sunglasses.png'),
             },
         ],
-        "multiple": false
+        multiple: false
     },
 ]
+
+
 
 
 
