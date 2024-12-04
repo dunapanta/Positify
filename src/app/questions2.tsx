@@ -8,12 +8,9 @@ import {
     SafeAreaView,
     Image,
     Dimensions,
-    StatusBar,
 } from 'react-native';
-import { COLORS, constants, icons, SIZES } from '@/src/constants';
+import { constants } from '@/src/constants';
 import { OnBoardQuestionsInterface, Option } from '@/src/interfaces/onBoardInterfaces';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { IconButton } from '../components/shared';
 
 const { width } = Dimensions.get('window');
 
@@ -23,7 +20,6 @@ const { onBoardQuestions } = constants;
 const OnboardingQuestionsScreen = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number[]>>({});
-    const { top } = useSafeAreaInsets();
 
     const handleOptionSelect = (questionId: number, optionId: number) => {
         setAnswers(prevAnswers => {
@@ -102,77 +98,74 @@ const OnboardingQuestionsScreen = () => {
     };
 
     return (
-        <View style={{ flex: 1, backgroundColor: COLORS.primaryLighter }}>
-            <StatusBar
-                translucent
-                barStyle="dark-content"
-                backgroundColor="transparent"
-            />
-            <View style={{
-                flex: 1,
-                marginHorizontal: SIZES.base,
-                marginTop: SIZES.base,
-            }} >
-                <View style={{ ...styles.topSection, marginTop: top }}>
-                    {currentQuestionIndex > 0 && (
-                        <IconButton
-                            iconStyle={{
-                                width: 28,
-                                height: 28,
-                            }}
-                            containerStyle={{
-                                width: 50,
-                                height: 50,
-                                alignItems: "center",
-                                justifyContent: "center",
-                                borderWidth: 1,
-                                borderColor: COLORS.primaryDarker,
-                                borderRadius: 25,
-                                backgroundColor: COLORS.primary,
-                                marginRight: 20,
-                            }}
-                            onPress={handlePreviousQuestion}
-                            icon={icons.back}
-                        />
-                    )}
-                    <View style={styles.progressContainer}>
-                        <View style={[styles.progressBar, { width: `${((currentQuestionIndex + 1) / onBoardQuestions.length) * 100}%` }]} />
-                    </View>
-                </View>
-                {/* <View style={{ marginTop: top }} /> */}
-                <FlatList
-                    data={[onBoardQuestions[currentQuestionIndex]]}
-                    renderItem={renderQuestion}
-                    keyExtractor={(item) => item.id.toString()}
-                    showsVerticalScrollIndicator={false}
-                />
-                <View style={styles.buttonContainer}>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.topSection}>
+                {currentQuestionIndex > 0 && (
                     <Pressable
                         style={({ pressed }) => [
-                            styles.navigationButton,
-                            styles.nextButton,
-                            pressed && styles.pressedNavigationButton,
-                            !isAnswerSelected() && styles.disabledButton
+                            styles.backButton,
+                            pressed && styles.pressedNavigationButton
                         ]}
-                        onPress={handleNextQuestion}
-                        disabled={!isAnswerSelected()}
+                        onPress={handlePreviousQuestion}
                     >
-                        <Text style={styles.navigationButtonText}>
-                            {currentQuestionIndex === onBoardQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
-                        </Text>
+                        <Text style={styles.backButtonText}>←</Text>
                     </Pressable>
+                )}
+                <View style={styles.progressContainer}>
+                    <View style={[styles.progressBar, { width: `${((currentQuestionIndex + 1) / onBoardQuestions.length) * 100}%` }]} />
                 </View>
             </View>
-        </View >
+            <FlatList
+                data={[onBoardQuestions[currentQuestionIndex]]}
+                renderItem={renderQuestion}
+                keyExtractor={(item) => item.id.toString()}
+                showsVerticalScrollIndicator={false}
+            />
+            <View style={styles.buttonContainer}>
+                <Pressable
+                    style={({ pressed }) => [
+                        styles.navigationButton,
+                        styles.nextButton,
+                        pressed && styles.pressedNavigationButton,
+                        !isAnswerSelected() && styles.disabledButton
+                    ]}
+                    onPress={handleNextQuestion}
+                    disabled={!isAnswerSelected()}
+                >
+                    <Text style={styles.navigationButtonText}>
+                        {currentQuestionIndex === onBoardQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
+                    </Text>
+                </Pressable>
+            </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f5f5f5',
+    },
     topSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        //marginHorizontal: 30,
+        marginHorizontal: 20,
+        marginTop: 20,
         marginBottom: 10,
+    },
+    backButton: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: '#9E9E9E',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 10,
+    },
+    backButtonText: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     progressContainer: {
         flex: 1,

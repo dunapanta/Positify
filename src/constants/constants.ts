@@ -1,4 +1,4 @@
-import { OnBoardQuestionsInterface } from "../interfaces/onBoardInterfaces";
+import { OnBoardQuestionsInterface } from "@/src/interfaces/onBoardInterfaces";
 
 let onBoard = [
     {

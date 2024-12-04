@@ -1,11 +1,11 @@
 export interface OnBoardQuestionsInterface {
     id: number;
     question: string;
-    options: Options[];
+    options: Option[];
     multiple: boolean;
 }
 
-export interface Options {
+export interface Option {
     id: number;
     text: string;
     hasImage: boolean;
