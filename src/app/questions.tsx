@@ -171,8 +171,9 @@ const styles = StyleSheet.create({
     topSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        //marginHorizontal: 30,
-        marginBottom: 10,
+        minHeight: SIZES.height * 0.08,
+        marginHorizontal: 20,
+        //marginBottom: 10,
     },
     progressContainer: {
         flex: 1,
