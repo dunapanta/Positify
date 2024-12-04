@@ -10,12 +10,11 @@ import {
     Dimensions,
     StatusBar,
 } from 'react-native';
+import * as Haptics from "expo-haptics";
 import { COLORS, constants, icons, SIZES } from '@/src/constants';
 import { OnBoardQuestionsInterface, Option } from '@/src/interfaces/onBoardInterfaces';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { IconButton } from '../components/shared';
-
-const { width } = Dimensions.get('window');
+import { IconButton } from '@/src/components/shared';
 
 const { onBoardQuestions } = constants;
 
@@ -78,7 +77,10 @@ const OnboardingQuestionsScreen = () => {
                 isSelected && styles.selectedOption,
                 pressed && styles.pressedOption
             ]}
-            onPress={() => handleOptionSelect(onBoardQuestions[currentQuestionIndex].id, option.id)}
+            onPress={() => {
+                Haptics.selectionAsync();
+                handleOptionSelect(onBoardQuestions[currentQuestionIndex].id, option.id)
+            }}
         >
             {option.hasImage && option.image && (
                 <Image source={option.image} style={styles.optionImage} />
@@ -196,18 +198,20 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     optionButton: {
-        backgroundColor: '#fff',
-        padding: 15,
-        borderRadius: 10,
-        marginBottom: 10,
-        borderWidth: 1,
-        borderColor: '#ddd',
-        flexDirection: 'row',
-        alignItems: 'center',
+        backgroundColor: COLORS.white,
+        borderColor: COLORS.white,
+        marginVertical: SIZES.margin / 2,
+        borderWidth: 2,
+        borderRadius: SIZES.radius + 2,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingHorizontal: SIZES.padding,
+        paddingVertical: SIZES.padding - 8,
     },
     selectedOption: {
-        backgroundColor: '#e8f5e9',
-        borderColor: '#4CAF50',
+        backgroundColor: COLORS.successAnswer,
+        borderColor: COLORS.successAnswerDark,
     },
     pressedOption: {
         opacity: 0.8,
