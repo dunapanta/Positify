@@ -11,10 +11,11 @@ import {
     StatusBar,
 } from 'react-native';
 import * as Haptics from "expo-haptics";
-import { COLORS, constants, icons, SIZES } from '@/src/constants';
+import { COLORS, constants, FONTS, icons, SIZES } from '@/src/constants';
 import { OnBoardQuestionsInterface, Option } from '@/src/interfaces/onBoardInterfaces';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
+import { useTranslation } from 'react-i18next';
 
 const { onBoardQuestions } = constants;
 
@@ -23,6 +24,7 @@ const OnboardingQuestionsScreen = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number[]>>({});
     const { top } = useSafeAreaInsets();
+    const { t } = useTranslation();
 
     const handleOptionSelect = (questionId: number, optionId: number) => {
         setAnswers(prevAnswers => {
@@ -85,7 +87,8 @@ const OnboardingQuestionsScreen = () => {
             {option.hasImage && option.image && (
                 <Image source={option.image} style={styles.optionImage} />
             )}
-            <Text style={styles.optionText}>{option.text}</Text>
+            <Text style={{ ...FONTS.h3, flex: 1 }}>{t(option.text)}</Text>
+
         </Pressable>
     );
 
@@ -97,7 +100,7 @@ const OnboardingQuestionsScreen = () => {
 
         return (
             <View style={styles.questionContainer}>
-                <Text style={styles.questionText}>{item.question}</Text>
+                <Text style={styles.questionText}>{t(item.question)}</Text>
                 {item.options.map(option => renderOption(option, isSelected(option.id)))}
             </View>
         );
@@ -216,15 +219,10 @@ const styles = StyleSheet.create({
     pressedOption: {
         opacity: 0.8,
     },
-    optionText: {
-        fontSize: 16,
-        color: '#333',
-        flex: 1,
-    },
     optionImage: {
         width: 30,
         height: 30,
-        marginRight: 10,
+        marginRight: 13,
     },
     buttonContainer: {
         flexDirection: 'row',
