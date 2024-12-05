@@ -10,4 +10,5 @@ export interface Option {
     text: string;
     hasImage: boolean;
     image?: any;
+    isMultiipleAnswer: boolean;
 }

@@ -14,7 +14,7 @@ import * as Haptics from "expo-haptics";
 import { COLORS, constants, FONTS, icons, SIZES } from '@/src/constants';
 import { OnBoardQuestionsInterface, Option } from '@/src/interfaces/onBoardInterfaces';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { IconButton } from '@/src/components/shared';
+import { IconButton, TextButton } from '@/src/components/shared';
 import { useTranslation } from 'react-i18next';
 
 const { onBoardQuestions } = constants;
@@ -89,6 +89,18 @@ const OnboardingQuestionsScreen = () => {
             )}
             <Text style={{ ...FONTS.h3, flex: 1 }}>{t(option.text)}</Text>
 
+            {option.isMultiipleAnswer ? (
+                <Image source={icons.dot} style={{
+                    ...styles.optionImage, tintColor:
+                        isSelected ? COLORS.successAnswerDark : COLORS.primaryLighter
+                }} />
+            ) : (
+                <Image source={icons.check} style={{
+                    ...styles.optionImage, tintColor:
+                        isSelected ? COLORS.successAnswerDark : COLORS.white
+                }} />
+            )}
+
         </Pressable>
     );
 
@@ -100,7 +112,7 @@ const OnboardingQuestionsScreen = () => {
 
         return (
             <View style={styles.questionContainer}>
-                <Text style={styles.questionText}>{t(item.question)}</Text>
+                <Text style={{ ...FONTS.h2, marginBottom: SIZES.margin, color: COLORS.secondaryDarker }}>{t(item.question)}</Text>
                 {item.options.map(option => renderOption(option, isSelected(option.id)))}
             </View>
         );
@@ -151,21 +163,40 @@ const OnboardingQuestionsScreen = () => {
                     keyExtractor={(item) => item.id.toString()}
                     showsVerticalScrollIndicator={false}
                 />
-                <View style={styles.buttonContainer}>
-                    <Pressable
-                        style={({ pressed }) => [
-                            styles.navigationButton,
-                            styles.nextButton,
-                            pressed && styles.pressedNavigationButton,
-                            !isAnswerSelected() && styles.disabledButton
-                        ]}
-                        onPress={handleNextQuestion}
-                        disabled={!isAnswerSelected()}
+                {/*  */}
+                <View
+                    style={{
+                        marginTop: SIZES.margin,
+                        height: SIZES.height * 0.14,
+                        backgroundColor: COLORS.primaryLighter,
+                        alignItems: "center",
+                        paddingHorizontal: SIZES.padding,
+
+                    }}
+                >
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            height: SIZES.buttonContainerHeight,
+                        }}
                     >
-                        <Text style={styles.navigationButtonText}>
-                            {currentQuestionIndex === onBoardQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
-                        </Text>
-                    </Pressable>
+                        <TextButton
+                            label={t("onboarding.usernameButton")}
+                            contentContainerStyle={{
+                                flex: 1,
+                                borderRadius: SIZES.radius,
+                                backgroundColor: !isAnswerSelected()
+                                    ? COLORS.secondaryLighter
+                                    : COLORS.secondaryDarker,
+                            }}
+                            labelStyle={{
+                                ...FONTS.h3,
+                                color: COLORS.primaryLighter,
+                            }}
+                            onPress={handleNextQuestion}
+                            disabled={!isAnswerSelected()}
+                        />
+                    </View>
                 </View>
             </View>
         </View >
@@ -188,17 +219,11 @@ const styles = StyleSheet.create({
     },
     progressBar: {
         height: '100%',
-        backgroundColor: '#4CAF50',
+        backgroundColor: COLORS.successAnswerDark,
         borderRadius: 5,
     },
     questionContainer: {
         padding: 20,
-    },
-    questionText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        color: '#333',
     },
     optionButton: {
         backgroundColor: COLORS.white,
@@ -223,34 +248,6 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         marginRight: 13,
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: 20,
-        marginBottom: 20,
-    },
-    navigationButton: {
-        flex: 1,
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    nextButton: {
-        backgroundColor: '#4CAF50',
-        marginLeft: 10,
-    },
-    pressedNavigationButton: {
-        opacity: 0.8,
-    },
-    disabledButton: {
-        opacity: 0.5,
-    },
-    navigationButtonText: {
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
     },
 });
 
