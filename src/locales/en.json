@@ -28,7 +28,16 @@
     "question2": "What is your experience with affirmations?",
     "question2Option1": "I am a beginner",
     "question2Option2": "I have tried a few times",
-    "question2Option3": "I use them frequently"
+    "question2Option3": "I use them frequently",
+    "question3": "What goals are on your mind?",
+    "question3Option1": "Self-esteem and confidence",
+    "question3Option2": "Daily motivation",
+    "question3Option3": "Better relationships",
+    "question3Option4": "Reduce stress",
+    "question3Option5": "Daily gratitude",
+    "question3Option6": "Healthy habits",
+    "question3Option7": "Spiritual connection",
+    "question3Option8": "Professional success"
   },
   "langModal": {
     "language": "Language",

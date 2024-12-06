@@ -28,7 +28,16 @@
     "question2": "¿Cuál es tu experiencia con afirmaciones?",
     "question2Option1": "Soy principiante",
     "question2Option2": "Soy principiante",
-    "question2Option3": "Las uso frecuentemente"
+    "question2Option3": "Las uso frecuentemente",
+    "question3": "¿Qué objetivos tienes en mente?",
+    "question3Option1": "Autoestima y confianza",
+    "question3Option2": "Motivación diaria",
+    "question3Option3": "Mejores relaciones",
+    "question3Option4": "Reducir estrés",
+    "question3Option5": "Gratitud diaria",
+    "question3Optio6": "Hábitos saludables",
+    "question3Option7": "Conexión espiritual",
+    "question3Option8": "Exito profesional"
   },
   "langModal": {
     "language": "Idioma",

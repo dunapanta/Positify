@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         paddingHorizontal: SIZES.padding,
-        paddingVertical: SIZES.padding - 8,
+        paddingVertical: SIZES.padding - 10,
     },
     selectedOption: {
         backgroundColor: COLORS.successAnswer,
