@@ -91,8 +91,9 @@ const OnboardingQuestionsScreen = () => {
 
             {option.isMultiipleAnswer ? (
                 <Image source={icons.dot} style={{
-                    ...styles.optionImage, tintColor:
-                        isSelected ? COLORS.successAnswerDark : COLORS.primaryLighter
+                    width: 35,
+                    height: 35,
+                    tintColor: isSelected ? COLORS.successAnswerDark : COLORS.primaryLighter
                 }} />
             ) : (
                 <Image source={icons.check} style={{
