@@ -14,6 +14,11 @@ const sun = require("@/src/assets/icons/sun.png");
 const apple = require("@/src/assets/icons/apple.png");
 const leaf = require("@/src/assets/icons/leaf.png");
 const trophy = require("@/src/assets/icons/trophy.png");
+const bell = require("@/src/assets/icons/bell.png");
+const headphones = require("@/src/assets/icons/headphones.png");
+const image = require("@/src/assets/icons/image.png");
+const notebook = require("@/src/assets/icons/notebook.png");
+const pen = require("@/src/assets/icons/pen.png");
 
 export default {
     es,
@@ -32,4 +37,8 @@ export default {
     apple,
     leaf,
     trophy,
+    bell,
+    headphones,
+    image,
+    notebook,
 }

@@ -37,7 +37,13 @@
     "question3Option5": "Daily gratitude",
     "question3Option6": "Healthy habits",
     "question3Option7": "Spiritual connection",
-    "question3Option8": "Professional success"
+    "question3Option8": "Professional success",
+    "question4": "How do you prefer to interact with your affirmations?",
+    "question4Option1": "Read affirmations",
+    "question4Option2": "Listen to audio",
+    "question4Option3": "Create your own affirmations",
+    "question4Option4": "View them with inspiring images",
+    "question4Option5": "Receive daily notifications"
   },
   "langModal": {
     "language": "Language",

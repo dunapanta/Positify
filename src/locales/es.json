@@ -37,7 +37,13 @@
     "question3Option5": "Gratitud diaria",
     "question3Option6": "Hábitos saludables",
     "question3Option7": "Conexión espiritual",
-    "question3Option8": "Exito profesional"
+    "question3Option8": "Exito profesional",
+    "question4": "¿Cómo prefieres interactuar con tus afirmaciones?",
+    "question4Option1": "Leer afirmaciones",
+    "question4Option2": "Escuchar audio",
+    "question4Option3": "Crear tus propias afirmaciones",
+    "question4Option4": "Verlas con imágenes inspiradoras",
+    "question4Option5": "Recibir notificaciones diarias"
   },
   "langModal": {
     "language": "Idioma",

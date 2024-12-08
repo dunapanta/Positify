@@ -141,6 +141,48 @@ let onBoardQuestions: OnBoardQuestionsInterface[] = [
         ],
         multiple: true
     },
+    {
+        id: 4,
+        question: "onboarding.question4",
+        options: [
+            {
+                id: 1,
+                text: "onboarding.question4Option1",
+                hasImage: true,
+                image: require('@/src/assets/icons/notebook.png'),
+                isMultiipleAnswer: true,
+            },
+            {
+                id: 2,
+                text: "onboarding.question4Option2",
+                hasImage: true,
+                image: require('@/src/assets/icons/headphones.png'),
+                isMultiipleAnswer: true,
+            },
+            {
+                id: 3,
+                text: "onboarding.question4Option3",
+                hasImage: true,
+                image: require('@/src/assets/icons/pen.png'),
+                isMultiipleAnswer: true,
+            },
+            {
+                id: 4,
+                text: "onboarding.question4Option4",
+                hasImage: true,
+                image: require('@/src/assets/icons/image.png'),
+                isMultiipleAnswer: true,
+            },
+            {
+                id: 5,
+                text: "onboarding.question4Option5",
+                hasImage: true,
+                image: require('@/src/assets/icons/bell.png'),
+                isMultiipleAnswer: true,
+            },
+        ],
+        multiple: true
+    },
 ]
 
 
