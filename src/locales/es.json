@@ -55,5 +55,8 @@
     "us": "Inglés",
     "es": "Español",
     "voice": "Voz"
+  },
+  "home": {
+    "hello": "Hola"
   }
 }

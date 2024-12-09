@@ -97,6 +97,7 @@ export const FONTS = {
         fontSize: SIZES.textInput,
         lineHeight: 22,
     },
+    usernameText: { fontFamily: "Lato-Black", fontSize: SIZES.h2, lineHeight: 30 },
 };
 
 export const darkTheme = {

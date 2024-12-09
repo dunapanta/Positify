@@ -6,6 +6,7 @@ const onBoard5 = require("@/src/assets/images/onBoard/onBoarding5.webp");
 const onBoard7 = require("@/src/assets/images/onBoard/onBoarding7.webp");
 const onBoard8 = require("@/src/assets/images/onBoard/onBoarding8.webp");
 const onBoardBackground = require("@/src/assets/images/onBoard/onBoardBackground.webp");
+const homeBackground = require("@/src/assets/images/ui/homeBackground.webp");
 
 export default {
     onBoard1,
@@ -16,4 +17,5 @@ export default {
     onBoard7,
     onBoard8,
     onBoardBackground,
+    homeBackground,
 };
