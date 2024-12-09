@@ -10,6 +10,7 @@ import {
     Dimensions,
     StatusBar,
 } from 'react-native';
+import { router } from "expo-router";
 import * as Haptics from "expo-haptics";
 import { COLORS, constants, FONTS, icons, SIZES } from '@/src/constants';
 import { OnBoardQuestionsInterface, Option } from '@/src/interfaces/onBoardInterfaces';
@@ -62,6 +63,7 @@ const OnboardingQuestionsScreen = () => {
         } else if (isAnswerSelected() && currentQuestionIndex === onBoardQuestions.length - 1) {
             // Handle completion of onboarding
             console.log('Onboarding completed', answers);
+            router.replace("/(tabs)/(home)/home");
         }
     };
 
@@ -182,7 +184,7 @@ const OnboardingQuestionsScreen = () => {
                         }}
                     >
                         <TextButton
-                            label={t("onboarding.usernameButton")}
+                            label={currentQuestionIndex === onBoardQuestions.length - 1 ? t("onboarding.finishButton") : t("onboarding.nextButton")}
                             contentContainerStyle={{
                                 flex: 1,
                                 borderRadius: SIZES.radius,

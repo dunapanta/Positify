@@ -33,9 +33,8 @@ const Username = () => {
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
 
-    const { setIsOnBoardCompleted } = useStorage((state) => state);
+    const { setIsOnBoardCompleted, setUsername } = useStorage((state) => state);
     //const { setUserId } = useAuthStore();
-    //const { setUsername } = useAuthStore((state) => state);
     const controllX = SIZES.width / 2; //Control center points x coordinate
 
     const {
@@ -53,8 +52,7 @@ const Username = () => {
 
     const onSubmit = async (data: FormValues) => {
         router.replace("/questions");
-        /* setUsername(data.username);
-        router.replace("/(tabs)/home"); */
+        setUsername(data.username);
         /*  try {
              setLoading(true);
              const response = await bookaiApi.post<CreateUserResponse>("/user", {
