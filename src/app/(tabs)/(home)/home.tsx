@@ -65,7 +65,9 @@ const Home = () => {
             </View>
             {/* Weekly Card */}
             <WeeklyCard />
-            <Text style={{ ...FONTS.h3, marginTop: 40 }}>Afirmaciones</Text>
+            <View style={{ marginHorizontal: SIZES.margin }}>
+                <Text style={{ ...FONTS.h3, marginTop: 20, marginBottom: 5 }}>Afirmaciones</Text>
+            </View>
             <FlatList
                 data={data}
                 keyExtractor={(item) => item.id}
@@ -78,7 +80,7 @@ const Home = () => {
                     />
                 )}
                 numColumns={2} // Configura dos columnas
-                contentContainerStyle={{ paddingHorizontal: 10, }}
+            contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: SIZES.height * 0.09 }}
             />
         </View>
     )
