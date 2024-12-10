@@ -7,18 +7,18 @@ import { WeeklyCard, WelcomeText } from '@/src/components/home';
 import AffirmationCard from '@/src/components/home/AffirmationCard';
 
 const data = [
-    { id: '1', title: 'Música', image: images.onBoard1, color: '#ff4c4c' },
-    { id: '2', title: 'Podcasts', image: images.onBoard2, color: '#1db954' },
-    { id: '3', title: 'Eventos en vivo', image: images.onBoard3, color: '#8e44ad' },
-    { id: '4', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#3498db' },
-    { id: '5', title: 'Música', image: images.onBoard1, color: '#ff4c4c' },
-    { id: '6', title: 'Podcasts', image: images.onBoard2, color: '#1db954' },
-    { id: '7', title: 'Eventos en vivo', image: images.onBoard3, color: '#8e44ad' },
-    { id: '8', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#3498db' },
-    { id: '9', title: 'Música', image: images.onBoard1, color: '#ff4c4c' },
-    { id: '10', title: 'Podcasts', image: images.onBoard2, color: '#1db954' },
-    { id: '11', title: 'Eventos en vivo', image: images.onBoard3, color: '#8e44ad' },
-    { id: '12', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#3498db' },
+    { id: '1', title: 'Música', image: images.onBoard1, color: '#FFB3BA' },
+    { id: '2', title: 'Podcasts', image: images.onBoard2, color: '#FFDFBA' },
+    { id: '3', title: 'Eventos en vivo', image: images.onBoard3, color: '#FFFFBA' },
+    { id: '4', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#BAFFC9' },
+    { id: '5', title: 'Música', image: images.onBoard1, color: '#BAE1FF' },
+    { id: '6', title: 'Podcasts', image: images.onBoard2, color: '#D5AAFF' },
+    { id: '7', title: 'Eventos en vivo', image: images.onBoard3, color: '#FFCCE5' },
+    { id: '8', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#E6FFFA ' },
+    { id: '9', title: 'Música', image: images.onBoard1, color: '#FDE1FF' },
+    { id: '10', title: 'Podcasts', image: images.onBoard2, color: '#FFF5BA' },
+    { id: '11', title: 'Eventos en vivo', image: images.onBoard3, color: '#C3FBD8' },
+    { id: '12', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#BFFCC6' },
 ];
 
 const Home = () => {

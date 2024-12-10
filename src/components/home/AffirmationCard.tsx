@@ -1,4 +1,4 @@
-import { SIZES } from '@/src/constants';
+import { COLORS, SIZES } from '@/src/constants';
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 
@@ -33,9 +33,11 @@ const styles = StyleSheet.create({
         padding: 10,
         position: 'relative',
         overflow: 'hidden',
+        borderWidth: 1,
+        borderColor: COLORS.secondaryLighter
     },
     title: {
-        color: '#fff',
+        color: COLORS.secondary,
         fontWeight: 'bold',
         fontSize: 14,
         textAlign: 'center',
