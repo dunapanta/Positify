@@ -1,5 +1,6 @@
 import { Image, Pressable, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as Haptics from "expo-haptics";
 
 import { COLORS, FONTS, images, SIZES } from '@/src/constants';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +9,10 @@ export const WeeklyCard = () => {
     const { t } = useTranslation();
     return (
         <Pressable
-            onPress={() => { }}
+            onPress={() => {
+                Haptics.selectionAsync();
+                // Navegar a la pantalla de la semana
+            }}
             style={({ pressed }) => ({
                 marginTop: -30,
                 alignSelf: 'center',
