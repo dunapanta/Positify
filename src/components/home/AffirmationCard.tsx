@@ -1,3 +1,4 @@
+import { SIZES } from '@/src/constants';
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 
@@ -25,8 +26,9 @@ const AffirmationCard = ({ title, image, color }: AffirmationCardProps) => {
 const styles = StyleSheet.create({
     card: {
         flex: 1, // Ocupar espacio proporcionalmente
-        margin: 5, // Separación entre las tarjetas
-        height: 120,
+        marginVertical: 8,
+        marginHorizontal: 4,
+        height: SIZES.height * 0.13,
         borderRadius: 8,
         padding: 10,
         position: 'relative',
@@ -36,9 +38,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 14,
+        textAlign: 'center',
     },
     image: {
-        width: '40%', // La imagen se adapta como porcentaje del contenedor
+        width: SIZES.height < 1000 ? '50%' : '30%', // La imagen se adapta como porcentaje del contenedor
         height: undefined,
         aspectRatio: 1, // Mantener la proporción cuadrada
         position: 'absolute',

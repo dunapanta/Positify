@@ -37,7 +37,7 @@ const Home = () => {
                     source={images.homeBackground}
                     style={{
                         width: "100%",
-                        height: SIZES.height * 0.35,
+                        height: "100%",
                         resizeMode: "cover",
                         position: "absolute",
                         top: 0,
@@ -47,7 +47,7 @@ const Home = () => {
                 {/* Animation */}
                 <View
                     style={{
-                        top: SIZES.height * 0.05,
+                        top: SIZES.height * 0.07,
                         paddingVertical: SIZES.height * 0.08,
                     }}
                 >
