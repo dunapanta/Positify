@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StatusBar, Image } from 'react-native'
+import { View, Text, StatusBar, Image, Pressable } from 'react-native'
 import Lottie from "lottie-react-native";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -49,31 +49,103 @@ const Home = () => {
                     />
                 </View>
             </View>
+            <Pressable
+            onPress={()=>{}}
+            style={({ pressed }) => ({
+                marginTop: -30,
+                alignSelf: 'center',
+                width: '90%',
+                height: SIZES.height * 0.17,
+                borderRadius: SIZES.radius,
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 5,
+                elevation: 5,
+                opacity: pressed ? 0.8 : 1, // Opacidad al presionar
+            })}
+        >
             <LinearGradient
-                colors={['#ffffff', COLORS.primaryDarker]} // Gradiente transparente al color principal
+                colors={['#ffffff', COLORS.primaryDarker]}
                 style={{
-                    marginTop: -30, // Superposición del card al header
-                    alignSelf: 'center',
-                    width: '90%',
-                    backgroundColor: COLORS.white,
+                    flex: 1,
+                    flexDirection: 'row',
                     borderRadius: SIZES.radius,
-                    padding: SIZES.padding,
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 4 },
-                    shadowOpacity: 0.3,
-                    shadowRadius: 5,
-                    elevation: 5, // Sombra en Android
+                    overflow: 'hidden', // Asegura que la imagen no se desborde
                 }}
             >
-                <Text style={{
-                    ...FONTS.h2,
-                    color: COLORS.secondaryLight,
-                }}>10 of 120</Text>
-                <Text style={{
-                    ...FONTS.h3,
-                    color: COLORS.secondaryLight,
-                }}>Day challenge</Text>
+                {/* Contenedor del lado izquierdo */}
+                <View
+                    style={{
+                        flex: 1,
+                        justifyContent: 'center',
+                        alignItems: 'center', // Centrado en el área izquierda
+                        paddingHorizontal: SIZES.padding,
+                    }}
+                >
+                    {/* Etiqueta diagonal */}
+                    <View
+                        style={{
+                            position: 'absolute',
+                            top: 5,
+                            left: -18,
+                            transform: [{ rotate: '-30deg' }], // Rotación en diagonal
+                            backgroundColor: COLORS.black, // Fondo negro
+                            paddingVertical: 5,
+                            paddingHorizontal: 15,
+                            borderRadius: SIZES.radius / 2,
+                        }}
+                    >
+                        <Text
+                            style={{
+                                ...FONTS.body5,
+                                color: COLORS.white, // Texto blanco
+                                fontWeight: 'bold',
+                            }}
+                        >
+                            Nueva afirmacion
+                        </Text>
+                    </View>
+
+                    {/* Texto centrado */}
+                    <Text
+                        style={{
+                            ...FONTS.h3,
+                            textAlign: 'center',
+                            color: COLORS.secondaryDarker,
+                        }}
+                    >
+                        Your Weekly Affirmation:
+                    </Text>
+                    <Text
+                        style={{
+                            ...FONTS.h2,
+                            textAlign: 'center',
+                            color: COLORS.primaryDarker,
+                            marginTop: 5,
+                        }}
+                    >
+                        Gratitude
+                    </Text>
+                </View>
+
+                {/* Imagen en el lado derecho */}
+                <View
+                    style={{
+                        flex: 1, // Ocupa la mitad derecha
+                    }}
+                >
+                    <Image
+                        source={images.homeBackground}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'cover', // La imagen cubre todo el espacio sin deformarse
+                        }}
+                    />
+                </View>
             </LinearGradient>
+        </Pressable>
         </View>
     )
 }

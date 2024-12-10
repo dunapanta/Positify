@@ -15,6 +15,7 @@ export const COLORS = {
     successAnswer: '#D9FFC8',
     successAnswerDark: '#008a0a',
     white: "#FFFFFF",
+    black: "#000000",
     darkBackground: "#000000",
     wrongInputColor: "#8a2d06",
     wrongInputColorLight: "#914d30",
