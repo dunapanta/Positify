@@ -48,7 +48,8 @@ export const SIZES = {
     textInput: 17,
     textCoin: 17,
     welcomeUser: 28,
-    bookCardTitle: 15,
+    subheader1: 17,
+    subheader2: 14,
     // app dimensions
     width,
     height,
@@ -99,6 +100,17 @@ export const FONTS = {
         lineHeight: 22,
     },
     usernameText: { fontFamily: "Lato-Black", fontSize: SIZES.h2, lineHeight: 30 },
+    subheader1: {
+        fontFamily: "Lato-Black",
+        fontSize: SIZES.subheader1,
+        lineHeight: 18,
+    },
+    subheader2: {
+        fontFamily: "Lato-Black",
+        fontSize: SIZES.subheader2,
+        lineHeight: 18,
+    },
+
 };
 
 export const darkTheme = {

@@ -57,6 +57,9 @@
     "voice": "Voz"
   },
   "home": {
-    "hello": "Hola"
+    "hello": "Hola",
+    "weeklyLabel": "Nueva Afirmación",
+    "weeklyTitle": "Tu Afirmación de la Semana:",
+    "weeklyTopic": "La paz interior"
   }
 }

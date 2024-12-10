@@ -57,6 +57,9 @@
     "voice": "Voice"
   },
   "home": {
-    "hello": "Hello"
+    "hello": "Hello",
+    "weeklyLabel": "New Affirmation",
+    "weeklyTitle": "Your Weekly Affirmation:",
+    "weeklyTopic": "Peace begins within"
   }
 }
