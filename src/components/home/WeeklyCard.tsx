@@ -14,7 +14,7 @@ export const WeeklyCard = () => {
                 // Navegar a la pantalla de la semana
             }}
             style={({ pressed }) => ({
-                marginTop: -30,
+                marginTop: -50,
                 alignSelf: 'center',
                 width: '90%',
                 height: SIZES.height * 0.17,
