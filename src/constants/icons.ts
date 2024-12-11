@@ -19,6 +19,7 @@ const headphones = require("@/src/assets/icons/headphones.png");
 const image = require("@/src/assets/icons/image.png");
 const notebook = require("@/src/assets/icons/notebook.png");
 const pen = require("@/src/assets/icons/pen.png");
+const lock = require("@/src/assets/icons/lock.png");
 
 export default {
     es,
@@ -41,4 +42,5 @@ export default {
     headphones,
     image,
     notebook,
+    lock
 }

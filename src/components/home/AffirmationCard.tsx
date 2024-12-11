@@ -1,4 +1,4 @@
-import { COLORS, SIZES } from '@/src/constants';
+import { COLORS, icons, SIZES } from '@/src/constants';
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 
@@ -19,6 +19,17 @@ const AffirmationCard = ({ title, image, color }: AffirmationCardProps) => {
         >
             <Text style={styles.title}>{title}</Text>
             <Image source={image} style={styles.image} />
+
+            {/* Ícono de candado */}
+            <View style={styles.lockIconContainer}>
+                <View style={styles.lockIconCircle}>
+                    <Image source={icons.lock} style={{
+                        width: 10,
+                        height: 10,
+                        tintColor: COLORS.primaryLighter
+                    }} />
+                </View>
+            </View>
         </Pressable>
     );
 };
@@ -51,6 +62,20 @@ const styles = StyleSheet.create({
         left: -10,
         transform: [{ rotate: '-15deg' }], // Rotar la imagen
         borderRadius: 8,
+    },
+    lockIconContainer: {
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        opacity: 0.9
+    },
+    lockIconCircle: {
+        width: 18,
+        height: 18,
+        borderRadius: 16,
+        backgroundColor: COLORS.secondaryLighter,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 
