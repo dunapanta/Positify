@@ -19,6 +19,7 @@ export const COLORS = {
     darkBackground: "#000000",
     wrongInputColor: "#8a2d06",
     wrongInputColorLight: "#914d30",
+    activeTab: "#d67200",
     weeklyColor1: "#FFB3BA",
     weeklyColor2: "#FFDFBA",
     weeklyColor3: "#FFFFBA",
