@@ -1,26 +1,33 @@
-import { COLORS, icons, SIZES } from '@/src/constants';
-import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import * as Haptics from "expo-haptics";
+
+import { COLORS, icons, SIZES } from '@/src/constants';
+
 
 interface AffirmationCardProps {
+    affirmationFormat: "text" | "audio";
     title: string;
     image: any;
     color: string;
+    onPress: () => void;
 }
 
-const AffirmationCard = ({ title, image, color }: AffirmationCardProps) => {
+const AffirmationCard = ({ affirmationFormat, title, image, color, onPress }: AffirmationCardProps) => {
     return (
         <Pressable
             style={({ pressed }) => [
                 styles.card,
                 { backgroundColor: color, opacity: pressed ? 0.8 : 1 },
             ]}
-            onPress={() => console.log('Card pressed')}
+            onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                onPress();
+            }}
         >
             <Text style={styles.title}>{title}</Text>
             <Image source={image} style={styles.image} />
 
-            {/* Ícono de candado */}
+            {/* Lock icon */}
             <View style={styles.lockIconContainer}>
                 <View style={styles.lockIconCircle}>
                     <Image source={icons.lock} style={{
@@ -30,6 +37,19 @@ const AffirmationCard = ({ title, image, color }: AffirmationCardProps) => {
                     }} />
                 </View>
             </View>
+            {/* affirmation Type */}
+            <View style={styles.affirmationIconContainer}>
+                {affirmationFormat === "text" ? <Image source={icons.notebook} style={{
+                    width: 23,
+                    height: 23,
+
+                }} /> : <Image source={icons.headphones} style={{
+                    width: 30,
+                    height: 30,
+
+                }} />}
+            </View>
+
         </Pressable>
     );
 };
@@ -67,13 +87,26 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 8,
         right: 8,
-        opacity: 0.9
+        opacity: 0.8,
     },
     lockIconCircle: {
         width: 18,
         height: 18,
         borderRadius: 16,
         backgroundColor: COLORS.secondaryLighter,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    affirmationIconContainer: {
+        position: 'absolute',
+        bottom: 8,
+        right: 8,
+    },
+    affirmationIconCircle: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: '#4CAF50', // Verde para distinguir el ícono de afirmación
         justifyContent: 'center',
         alignItems: 'center',
     },
