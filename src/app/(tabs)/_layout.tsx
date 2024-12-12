@@ -43,12 +43,7 @@ const Layout = () => {
     const { t } = useTranslation();
     const path = usePathname();
     const pathsHiddeTabBar = [
-        "/bookdetail",
-        "/chapter",
-        "/createfirst",
-        "/creativesecond",
-        "/whatif",
-        "/purchase",
+        "/affirmationscroll",
     ];
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>

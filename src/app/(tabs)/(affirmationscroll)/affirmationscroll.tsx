@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Platform } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer, useAudioPlayerStatus, } from 'expo-audio';
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import Animated, { Easing, useSharedValue, withDelay, withRepeat, withTiming } from 'react-native-reanimated';
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
+import { COLORS } from '@/src/constants';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 const { height, width } = Dimensions.get("window");
@@ -25,6 +27,7 @@ export default function App() {
     const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef(null);
+    const { top } = useSafeAreaInsets();
 
     // Función para controlar el Text-to-Speech
     const speak = (text: string) => {
@@ -80,7 +83,15 @@ export default function App() {
     );
 
     return (
-        <View style={styles.container}>
+        <View style={{
+            ...styles.container, marginTop: Platform.OS === "android" ? top
+                : 0
+        }}>
+            <StatusBar
+                translucent
+                barStyle="dark-content"
+                backgroundColor={COLORS.primaryLighter}
+            />
             {/* Animación de Fondo */}
             <AnimatedBackground />
 
@@ -117,7 +128,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#faedde',
+        backgroundColor: COLORS.primaryLighter,
     },
     flatlist: {
         flex: 1,
