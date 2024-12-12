@@ -5,6 +5,7 @@ import Lottie from "lottie-react-native";
 import { COLORS, FONTS, images, SIZES } from '@/src/constants'
 import { WeeklyCard, WelcomeText } from '@/src/components/home';
 import AffirmationCard from '@/src/components/home/AffirmationCard';
+import { router } from 'expo-router';
 
 const data = [
     { id: '1', title: 'Música', image: images.onBoard1, color: '#FFB3BA', affirmationFormat: "text" },
@@ -77,7 +78,9 @@ const Home = () => {
                         image={item.image}
                         color={item.color}
                         affirmationFormat={item.affirmationFormat as "text" | "audio"}
-                        onPress={() => console.log(item.title)}
+                        onPress={() => {
+                            router.push("/affirmationscroll");
+                            console.log(item.title)}}
                     />
                 )}
                 numColumns={2} // Configura dos columnas
