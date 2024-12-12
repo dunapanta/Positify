@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Platform } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
 import { COLORS } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 
 const { height, width } = Dimensions.get("window");
 
@@ -20,7 +19,7 @@ const frases = [
 
 export default function App() {
     const [currentPhrase, setCurrentPhrase] = useState(frases[0]);
-    const [isSpeechPlaying, setIsSpeechPlaying] = useState(false);
+    const [isSpeechPlaying, setIsSpeechPlaying] = useState(true);
     const [sound, setSound] = useState(); // Para la música
     //const [isMusicPlaying, setIsMusicPlaying] = useState(false); // Control del estado de la música
     const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
@@ -30,10 +29,22 @@ export default function App() {
     player.volume = 0.5;
     player.loop = true;
 
+    let voice =
+        Platform.OS === "ios"
+            ? "com.apple.voice.compact.es-MX.Paulina"
+            : "es-us-x-esd-network";
+
+    if (Platform.OS === "ios") {
+        voice = "com.apple.voice.compact.es-MX.Paulina";
+    } else {
+        voice = "es-us-x-esd-network"; //only for android
+    }
+
+
     // Función para controlar el Text-to-Speech
     const speak = (text: string) => {
         Speech.stop();
-        Speech.speak(text);
+        Speech.speak(text, { voice: voice, volume: 6 });
     };
 
     const toggleSpeech = () => {

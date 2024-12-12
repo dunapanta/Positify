@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text, StatusBar, Image, FlatList } from 'react-native'
+import { View, Text, Image, FlatList, StatusBar } from 'react-native'
 import Lottie from "lottie-react-native";
+import { useIsFocused } from '@react-navigation/native';
+import { router } from 'expo-router';
 
 import { COLORS, FONTS, images, SIZES } from '@/src/constants'
 import { WeeklyCard, WelcomeText } from '@/src/components/home';
 import AffirmationCard from '@/src/components/home/AffirmationCard';
-import { router } from 'expo-router';
 
 const data = [
     { id: '1', title: 'Música', image: images.onBoard1, color: '#FFB3BA', affirmationFormat: "text" },
@@ -23,14 +24,17 @@ const data = [
 ];
 
 const Home = () => {
+    const isFocused = useIsFocused();
+    console.log(isFocused)
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.primaryLighter }}>
-            <StatusBar
-                translucent
-                barStyle="dark-content"
-                backgroundColor="transparent"
-            />
-
+            {isFocused && (
+                <StatusBar
+                    translucent
+                    backgroundColor="transparent"
+                    barStyle="light-content"
+                />
+            )}
             <WelcomeText />
             {/* Header */}
             <View style={{ overflow: "hidden" }}>
@@ -80,7 +84,8 @@ const Home = () => {
                         affirmationFormat={item.affirmationFormat as "text" | "audio"}
                         onPress={() => {
                             router.push("/affirmationscroll");
-                            console.log(item.title)}}
+                            console.log(item.title)
+                        }}
                     />
                 )}
                 numColumns={2} // Configura dos columnas
