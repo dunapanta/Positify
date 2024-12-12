@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Platform } from 'react-native';
 import * as Speech from 'expo-speech';
-import { useAudioPlayer, useAudioPlayerStatus, } from 'expo-audio';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
-import Animated, { Easing, useSharedValue, withDelay, withRepeat, withTiming } from 'react-native-reanimated';
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
 import { COLORS } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -28,6 +27,8 @@ export default function App() {
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef(null);
     const { top } = useSafeAreaInsets();
+    player.volume = 0.5;
+    player.loop = true;
 
     // Función para controlar el Text-to-Speech
     const speak = (text: string) => {
