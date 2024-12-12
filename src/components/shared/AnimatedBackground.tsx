@@ -1,3 +1,4 @@
+import { COLORS } from '@/src/constants';
 import { useEffect } from 'react';
 import { useWindowDimensions, View, StyleSheet } from 'react-native';
 import Animated, {
@@ -11,9 +12,9 @@ import Animated, {
 export default function AnimatedBackground() {
   const { height, width } = useWindowDimensions();
 
-  const top1 = useSharedValue(0.3 * height);
-  const top2 = useSharedValue(0.5 * height);
-  const top3 = useSharedValue(0.7 * height);
+  const top1 = useSharedValue(0.1 * height);
+  const top2 = useSharedValue(0.3 * height);
+  const top3 = useSharedValue(0.5 * height);
 
   useEffect(() => {
     const options = {
@@ -35,27 +36,27 @@ export default function AnimatedBackground() {
     <View style={styles.container}>
       {/* Circles (concentrically) */}
       <Animated.View
-        style={[styles.circle, { 
-          top: top1, 
-          left: (width - (width * 0.5)) / 2, 
-          backgroundColor: '#fcd34d', 
-          width: '50%' 
+        style={[styles.circle, {
+          top: top1,
+          left: (width - (width * 0.5)) / 2,
+          backgroundColor: COLORS.weeklyColor8,
+          width: '50%'
         }]} // Small circle
       />
       <Animated.View
-        style={[styles.circle, { 
-          top: top2, 
-          left: (width - (width * 0.7)) / 2, 
-          backgroundColor: '#fbbf24', 
-          width: '70%' 
+        style={[styles.circle, {
+          top: top2,
+          left: (width - (width * 0.7)) / 2,
+          backgroundColor: COLORS.weeklyColor12,
+          width: '70%'
         }]} // Medium circle
       />
       <Animated.View
-        style={[styles.circle, { 
-          top: top3, 
-          left: (width - (width * 0.9)) / 2, 
-          backgroundColor: '#fb923c', 
-          width: '90%' 
+        style={[styles.circle, {
+          top: top3,
+          left: (width - (width * 0.9)) / 2,
+          backgroundColor: COLORS.weeklyColor21,
+          width: '90%'
         }]} // Large circle
       />
     </View>
