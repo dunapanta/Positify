@@ -4,7 +4,7 @@ import * as Speech from 'expo-speech';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
-import { COLORS } from '@/src/constants';
+import { COLORS, FONTS } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { height, width } = Dimensions.get("window");
@@ -88,8 +88,8 @@ export default function App() {
 
     const renderItem = ({ item }: any) => (
         <View style={styles.page}>
-            <View style={{ backgroundColor: "#faedde", opacity: 0.5 }}>
-                <Text style={styles.text}>{item.title}</Text>
+            <View style={{ backgroundColor: COLORS.primaryLight, borderRadius: 10 }}>
+                <Text style={{ ...FONTS.usernameText, marginVertical: 13, marginHorizontal: 10 }}>{item.title}</Text>
             </View>
         </View>
     );
@@ -151,13 +151,6 @@ const styles = StyleSheet.create({
         width: width,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    text: {
-        fontSize: 24,
-        color: '#000',
-        textAlign: 'center',
-        marginBottom: 30,
-        fontWeight: 'bold',
     },
     globalButton: {
         position: 'absolute',

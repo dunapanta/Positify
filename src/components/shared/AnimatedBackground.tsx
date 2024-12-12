@@ -77,5 +77,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     aspectRatio: 1, // Ensure the circle is square
     borderRadius: 10000, // Make it fully round
+    borderWidth: 0.5,
+    borderColor: COLORS.secondaryLighter,
   },
 });
