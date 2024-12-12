@@ -88,7 +88,7 @@ export default function App() {
 
     const renderItem = ({ item }: any) => (
         <View style={styles.page}>
-            <View style={{ backgroundColor: COLORS.primaryLight, borderRadius: 10 }}>
+            <View style={{ backgroundColor: "#faeddeDD", borderRadius: 10, borderWidth:0.5 }}>
                 <Text style={{ ...FONTS.usernameText, marginVertical: 13, marginHorizontal: 10 }}>{item.title}</Text>
             </View>
         </View>

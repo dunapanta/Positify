@@ -21,6 +21,8 @@ const notebook = require("@/src/assets/icons/notebook.png");
 const pen = require("@/src/assets/icons/pen.png");
 const lock = require("@/src/assets/icons/lock.png");
 const home = require("@/src/assets/icons/home.png");
+const musicnote = require("@/src/assets/icons/musicnote.png");
+const speak = require("@/src/assets/icons/speak.png");
 
 export default {
     es,
@@ -46,4 +48,6 @@ export default {
     lock,
     pen,
     home,
+    musicnote,
+    speak
 }
