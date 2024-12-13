@@ -1,7 +1,8 @@
-import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, TouchableOpacity } from 'react-native';
 import * as Haptics from "expo-haptics";
 
 import { COLORS, icons, SIZES } from '@/src/constants';
+import { Link } from 'expo-router';
 
 
 interface AffirmationCardProps {
@@ -14,43 +15,46 @@ interface AffirmationCardProps {
 
 const AffirmationCard = ({ affirmationFormat, title, image, color, onPress }: AffirmationCardProps) => {
     return (
-        <Pressable
-            style={({ pressed }) => [
-                styles.card,
-                { backgroundColor: color, opacity: pressed ? 0.8 : 1 },
-            ]}
-            onPress={() => {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                onPress();
-            }}
-        >
-            <Text style={styles.title}>{title}</Text>
-            <Image source={image} style={styles.image} />
+        <Link style={{ ...styles.card, backgroundColor: color }} href="/affirmationscroll" asChild>
+            <TouchableOpacity
+                /* style={({ pressed }) => [
+                    styles.card,
+                    { backgroundColor: color, opacity: pressed ? 0.8 : 1 },
+                ]} */
+               activeOpacity={0.8}
+                onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    //onPress();
+                }}
+            >
+                <Text style={styles.title}>{title}</Text>
+                <Image source={image} style={styles.image} />
 
-            {/* Lock icon */}
-            <View style={styles.lockIconContainer}>
-                <View style={styles.lockIconCircle}>
-                    <Image source={icons.lock} style={{
-                        width: 10,
-                        height: 10,
-                        tintColor: COLORS.primaryLighter
-                    }} />
+                {/* Lock icon */}
+                <View style={styles.lockIconContainer}>
+                    <View style={styles.lockIconCircle}>
+                        <Image source={icons.lock} style={{
+                            width: 10,
+                            height: 10,
+                            tintColor: COLORS.primaryLighter
+                        }} />
+                    </View>
                 </View>
-            </View>
-            {/* affirmation Type */}
-            <View style={styles.affirmationIconContainer}>
-                {affirmationFormat === "text" ? <Image source={icons.notebook} style={{
-                    width: 23,
-                    height: 23,
+                {/* affirmation Type */}
+                <View style={styles.affirmationIconContainer}>
+                    {affirmationFormat === "text" ? <Image source={icons.notebook} style={{
+                        width: 23,
+                        height: 23,
 
-                }} /> : <Image source={icons.headphones} style={{
-                    width: 30,
-                    height: 30,
+                    }} /> : <Image source={icons.headphones} style={{
+                        width: 30,
+                        height: 30,
 
-                }} />}
-            </View>
+                    }} />}
+                </View>
 
-        </Pressable>
+            </TouchableOpacity>
+        </Link>
     );
 };
 

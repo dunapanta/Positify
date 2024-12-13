@@ -83,7 +83,7 @@ const Home = () => {
                         color={item.color}
                         affirmationFormat={item.affirmationFormat as "text" | "audio"}
                         onPress={() => {
-                            router.push("/affirmationscroll");
+                            //router.push("/affirmationscroll");
                             console.log(item.title)
                         }}
                     />
