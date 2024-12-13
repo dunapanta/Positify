@@ -141,8 +141,8 @@ const OnboardingQuestionsScreen = () => {
                                 height: 28,
                             }}
                             containerStyle={{
-                                width: 50,
-                                height: 50,
+                                width: 43,
+                                height: 43,
                                 alignItems: "center",
                                 justifyContent: "center",
                                 borderWidth: 1,

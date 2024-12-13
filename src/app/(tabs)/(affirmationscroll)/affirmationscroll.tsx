@@ -119,7 +119,7 @@ export default function App() {
             />
             {/* Animación de Fondo */}
             <AnimatedBackground />
-
+            {/* Back button */}
             <IconButton
                 iconStyle={{
                     width: 28,
@@ -128,7 +128,7 @@ export default function App() {
                 containerStyle={{
                     ...styles.backContainer,
                     //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
-                    marginTop: top + 3,
+                    marginTop: top,
                     left: '8%',
                 }}
                 onPress={() => {
@@ -139,7 +139,7 @@ export default function App() {
             />
 
 
-            <Text style={{ ...FONTS.h2, marginTop: top + 8, marginBottom: 3, position: "absolute", width: "100%", textAlign: "center" }}>Afirmaciones</Text>
+            <Text style={{ ...FONTS.affirmationHeader, marginTop: top + 13, marginBottom: 3, position: "absolute", width: "100%", textAlign: "center", color: COLORS.secondary }}>Relationships and Connection</Text>
 
             {/* FlatList con Frases */}
             <FlatList
@@ -215,8 +215,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
         right: '10%',
-        width: 50,
-        height: 50,
+        width: 43,
+        height: 43,
         backgroundColor: COLORS.primaryLight,
         borderRadius: SIZES.radius * 2,
         justifyContent: 'center',

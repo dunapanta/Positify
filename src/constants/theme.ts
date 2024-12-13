@@ -139,6 +139,11 @@ export const FONTS = {
         fontSize: SIZES.subheader2,
         lineHeight: 18,
     },
+    affirmationHeader: {
+        fontFamily: "Lato-Bold",
+        fontSize: SIZES.subheader1,
+        lineHeight: 17,
+    }
 
 };
 
