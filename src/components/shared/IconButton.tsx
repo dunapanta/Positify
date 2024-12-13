@@ -6,6 +6,7 @@ interface IconButtonProps {
     onPress: () => void;
     icon: any;
     iconStyle?: any;
+    onLongPress?: () => void;
 }
 
 export const IconButton = ({
@@ -13,6 +14,7 @@ export const IconButton = ({
     onPress,
     icon,
     iconStyle,
+    onLongPress
 }: IconButtonProps) => {
     return (
         <Pressable
@@ -22,6 +24,7 @@ export const IconButton = ({
                     ...containerStyle,
                 },
             ]}
+            onLongPress={onLongPress ? onLongPress : () => {}}
             onPress={onPress}>
             <Image
                 source={icon}

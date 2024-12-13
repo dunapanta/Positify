@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import * as Haptics from "expo-haptics";
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
-import { COLORS, FONTS } from '@/src/constants';
+import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { IconButton } from '@/src/components/shared';
 
 const { height, width } = Dimensions.get("window");
 
@@ -26,8 +28,18 @@ export default function App() {
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef(null);
     const { top } = useSafeAreaInsets();
-    player.volume = 0.5;
+    player.volume = 0.4;
     player.loop = true;
+    //console.log(status);
+
+    useEffect(() => {
+        player.play();
+        /* return () => {
+            player.remove();
+        }; */
+    }, []);
+    //console.log("player", player);
+    //console.log("player.playing", player.playing);
 
     let voice =
         Platform.OS === "ios"
@@ -88,7 +100,7 @@ export default function App() {
 
     const renderItem = ({ item }: any) => (
         <View style={styles.page}>
-            <View style={{ backgroundColor: "#faeddeDD", borderRadius: 10, borderWidth:0.5 }}>
+            <View style={{ backgroundColor: "#faeddeDD", borderRadius: 10, borderWidth: 0.5 }}>
                 <Text style={{ ...FONTS.usernameText, marginVertical: 13, marginHorizontal: 10 }}>{item.title}</Text>
             </View>
         </View>
@@ -107,6 +119,8 @@ export default function App() {
             {/* Animación de Fondo */}
             <AnimatedBackground />
 
+
+
             {/* FlatList con Frases */}
             <FlatList
                 ref={flatListRef}
@@ -120,19 +134,33 @@ export default function App() {
                 style={styles.flatlist}
             />
 
-            {/* Botón de Play/Pause para el Texto a Voz */}
-            <TouchableOpacity style={styles.globalButton} onPress={toggleSpeech}>
-                <Text style={styles.globalButtonText}>
-                    {isSpeechPlaying ? 'Pause Speech' : 'Play Speech'}
-                </Text>
-            </TouchableOpacity>
+            {/* Speach Play/Pause */}
+            <IconButton
+                icon={icons.speak}
+                onPress={() => {
+                    Haptics.selectionAsync()
+                    toggleSpeech();
+                }}
+                onLongPress={() => Haptics.selectionAsync()}
+                containerStyle={{
+                    ...styles.optionContainer,
+                    backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
+                    marginTop: top + 10,
+                }} />
 
-            {/* Botón de Play/Pause para la Música en la parte superior derecha */}
-            <TouchableOpacity style={styles.musicButton} onPress={() => (player.playing ? player.pause() : player.play())}>
-                <Text style={styles.musicButtonText}>
-                    {status.playing ? 'Pause Music' : 'Play Music'}
-                </Text>
-            </TouchableOpacity>
+            {/* Music Play/Pause */}
+            <IconButton
+                icon={icons.musicnote}
+                onPress={() => {
+                    Haptics.selectionAsync()
+                    player.playing ? player.pause() : player.play()
+                }}
+                onLongPress={() => Haptics.selectionAsync()}
+                containerStyle={{
+                    ...styles.optionContainer,
+                    backgroundColor: player.playing ? COLORS.primaryDark : COLORS.primaryLighter,
+                    marginTop: top + 70,
+                }} />
         </View>
     );
 }
@@ -152,30 +180,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    globalButton: {
+    optionContainer: {
         position: 'absolute',
-        bottom: 100,
-        left: '10%',
-        padding: 10,
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        borderRadius: 5,
-        zIndex: 2,
-    },
-    globalButtonText: {
-        fontSize: 16,
-        color: '#fff',
-    },
-    musicButton: {
-        position: 'absolute',
-        top: 50,  // Ajusta la posición del botón para que esté en la parte superior
-        right: '10%',  // Colócalo a la derecha
-        padding: 10,
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        borderRadius: 5,
-        zIndex: 2,
-    },
-    musicButtonText: {
-        fontSize: 16,
-        color: '#fff',
+        //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
+        right: '10%',
+        width: 50,
+        height: 50,
+        backgroundColor: COLORS.primaryLight,
+        borderRadius: SIZES.radius * 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: COLORS.secondaryDarker,
+        zIndex: 10,
     },
 });
