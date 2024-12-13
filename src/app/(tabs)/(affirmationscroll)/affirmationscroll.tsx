@@ -8,6 +8,7 @@ import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
 import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
+import { router } from 'expo-router';
 
 const { height, width } = Dimensions.get("window");
 
@@ -119,7 +120,26 @@ export default function App() {
             {/* Animación de Fondo */}
             <AnimatedBackground />
 
+            <IconButton
+                iconStyle={{
+                    width: 28,
+                    height: 28,
+                }}
+                containerStyle={{
+                    ...styles.backContainer,
+                    //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
+                    marginTop: top + 3,
+                    left: '8%',
+                }}
+                onPress={() => {
+                    Haptics.selectionAsync()
+                    router.back();
+                }}
+                icon={icons.back}
+            />
 
+
+            <Text style={{ ...FONTS.h2, marginTop: top + 8, marginBottom: 3, position: "absolute", width: "100%", textAlign: "center" }}>Afirmaciones</Text>
 
             {/* FlatList con Frases */}
             <FlatList
@@ -145,8 +165,13 @@ export default function App() {
                 containerStyle={{
                     ...styles.optionContainer,
                     backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
-                    marginTop: top + 10,
-                }} />
+                    marginTop: top + 50,
+                }}
+                iconStyle={{
+                    width: 25,
+                    height: 25,
+                }}
+            />
 
             {/* Music Play/Pause */}
             <IconButton
@@ -159,8 +184,14 @@ export default function App() {
                 containerStyle={{
                     ...styles.optionContainer,
                     backgroundColor: player.playing ? COLORS.primaryDark : COLORS.primaryLighter,
-                    marginTop: top + 70,
-                }} />
+                    marginTop: top + 100,
+                }}
+                iconStyle={{
+                    width: 25,
+                    height: 25,
+                }}
+            />
+
         </View>
     );
 }
@@ -180,12 +211,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    optionContainer: {
+    backContainer: {
         position: 'absolute',
         //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
         right: '10%',
         width: 50,
         height: 50,
+        backgroundColor: COLORS.primaryLight,
+        borderRadius: SIZES.radius * 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: COLORS.secondaryDarker,
+        zIndex: 10,
+    },
+    optionContainer: {
+        position: 'absolute',
+        //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
+        right: '10%',
+        width: 40,
+        height: 40,
         backgroundColor: COLORS.primaryLight,
         borderRadius: SIZES.radius * 2,
         justifyContent: 'center',
