@@ -122,14 +122,14 @@ export default function App() {
             {/* Back button */}
             <IconButton
                 iconStyle={{
-                    width: 28,
-                    height: 28,
+                    width: 25,
+                    height: 25,
                 }}
                 containerStyle={{
-                    ...styles.backContainer,
+                    ...styles.optionContainer,
                     //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
                     marginTop: top,
-                    left: '8%',
+                    left: '7%',
                 }}
                 onPress={() => {
                     Haptics.selectionAsync()

@@ -53,7 +53,7 @@ const Layout = () => {
                     headerShown: false,
                     tabBarActiveTintColor: COLORS.activeTab,
                     headerBackground: () => (
-                        <View style={{ height: 100, backgroundColor: COLORS.primary }} />
+                        <View style={{ height: 50, backgroundColor: COLORS.secondaryLighter }} />
                     ),
                     tabBarStyle: {
                         display: pathsHiddeTabBar.includes(path) ? "none" : "flex",
@@ -67,7 +67,7 @@ const Layout = () => {
                         borderRadius: 15,
                         backgroundColor: COLORS.white,
                         borderTopColor: "transparent",
-                        height: SIZES.height * 0.1,
+                        height: SIZES.height * 0.09,
                     },
                 }}
             >

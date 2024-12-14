@@ -137,12 +137,12 @@ const OnboardingQuestionsScreen = () => {
                     {currentQuestionIndex > 0 && (
                         <IconButton
                             iconStyle={{
-                                width: 28,
-                                height: 28,
+                                width: 25,
+                                height: 25,
                             }}
                             containerStyle={{
-                                width: 43,
-                                height: 43,
+                                width: 40,
+                                height: 40,
                                 alignItems: "center",
                                 justifyContent: "center",
                                 borderWidth: 1,

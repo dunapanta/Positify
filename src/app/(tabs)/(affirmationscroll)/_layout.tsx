@@ -16,7 +16,7 @@ const Layout = () => {
                 }}
             >
                 <Stack.Screen
-                    name="affirmattionscroll"
+                    name="affirmationscroll"
                     options={
                         {
                             //title: t("tabBar.affirmattionscroll"),
