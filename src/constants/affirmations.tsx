@@ -761,4 +761,14 @@ export const affirmationsGeneral: Affirmation[] = [
         createdAt: "2024-12-14T00:33:36.618Z",
         updatedAt: "2024-12-14T00:33:36.618Z",
     },
+    {
+        id: "0077",
+        affirmationEN: "I have healthy thoughts",
+        affirmationES: "Tengo pensamientos saludables",
+        isFavorite: false,
+        category: "GENERAL",
+        createdBy: "SYSTEM",
+        createdAt: "2024-12-14T00:33:36.618Z",
+        updatedAt: "2024-12-14T00:33:36.618Z",
+    },
 ]
