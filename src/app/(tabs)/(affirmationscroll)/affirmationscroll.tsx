@@ -50,10 +50,18 @@ export default function App() {
             ? "com.apple.voice.compact.es-MX.Paulina"
             : "es-us-x-esd-network";
 
-    if (Platform.OS === "ios") {
-        voice = "com.apple.voice.compact.es-MX.Paulina";
+    if (language === "es") {
+        if (Platform.OS === "ios") {
+            voice = "com.apple.voice.compact.es-MX.Paulina";
+        } else {
+            voice = "es-us-x-esd-network"; //only for android
+        }
     } else {
-        voice = "es-us-x-esd-network"; //only for android
+        if (Platform.OS === "ios") {
+            voice = "com.apple.voice.compact.en-US.Samantha";
+        } else {
+            voice = "en-us-x-tpd-local"; //only for android
+        }
     }
 
 
