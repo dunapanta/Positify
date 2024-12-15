@@ -4,7 +4,7 @@ function getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-export function selectRandomAffirmations(arr: Affirmation[], numAffirmations: number) {
+export function generateRandomAffirmations(arr: Affirmation[], numAffirmations: number) {
     const selectedAffirmations: Affirmation[] = [];
     const totalAffirmations = arr.length;
 

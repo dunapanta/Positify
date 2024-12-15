@@ -9,27 +9,22 @@ import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
 import { router } from 'expo-router';
-
-const { height, width } = Dimensions.get("window");
-
-const frases = [
-    { id: "1", title: "Esta es la frase número uno." },
-    { id: "2", title: "Aquí está la segunda frase." },
-    { id: "3", title: "Frase número tres, disfrútala." },
-    { id: "4", title: "La cuarta frase llega ahora." },
-    { id: "5", title: "Y aquí está la quinta frase." },
-];
+import { useAffirmations } from '@/src/store/useAffirmations';
+import { useStorage } from '@/src/store';
+import { Affirmation } from '@/src/interfaces/affirmationsInterface';
 
 export default function App() {
-    const [currentPhrase, setCurrentPhrase] = useState(frases[0]);
+    const { selectedAffirmations } = useAffirmations();
+    const { language } = useStorage();
+    const [currentAffirmation, setCurrentAffirmation] = useState<Affirmation>(selectedAffirmations[0]);
     const [isSpeechPlaying, setIsSpeechPlaying] = useState(true);
     const [sound, setSound] = useState(); // Para la música
-    //const [isMusicPlaying, setIsMusicPlaying] = useState(false); // Control del estado de la música
+
     const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef(null);
     const { top } = useSafeAreaInsets();
-    player.volume = 0.4;
+    player.volume = 0.43
     player.loop = true;
     //console.log(status);
 
@@ -57,52 +52,34 @@ export default function App() {
     // Función para controlar el Text-to-Speech
     const speak = (text: string) => {
         Speech.stop();
-        Speech.speak(text, { voice: voice, volume: 6 });
+        Speech.speak(text, { voice: voice, volume: 1 });
     };
 
     const toggleSpeech = () => {
         if (isSpeechPlaying) {
             Speech.stop();
         } else {
-            speak(currentPhrase.title);
+            let afirmationToSpeak = language === "en" ? currentAffirmation.affirmationEN : currentAffirmation.affirmationES;
+            speak(afirmationToSpeak);
         }
         setIsSpeechPlaying(!isSpeechPlaying);
     };
 
-    // Funciones para controlar la música
-    /* const playPauseMusic = async () => {
-        if (isMusicPlaying) {
-            await sound.stopAsync();
-        } else {
-            const { sound: playbackObject } = await Audio.Sound.createAsync(
-                require('@/assets/music/somemightsay.m4a'), // Cambia esto por la ubicación correcta de tu archivo mp3
-                { shouldPlay: true, isLooping: true } // Habilita el loop de la canción
-            );
-            setSound(playbackObject);
-            playbackObject.setOnPlaybackStatusUpdate((status) => {
-                if (status.didJustFinish) {
-                    // Si la canción termina, reiniciar desde el principio
-                    playbackObject.replayAsync();
-                }
-            });
-        }
-        setIsMusicPlaying(!isMusicPlaying);
-    }; */
-
     const handleViewableItemsChanged = ({ viewableItems }: any) => {
         if (viewableItems.length > 0) {
-            const phrase = viewableItems[0].item;
-            setCurrentPhrase(phrase);
+            const affirmation = viewableItems[0].item;
+            setCurrentAffirmation(affirmation);
             if (isSpeechPlaying) {
-                speak(phrase.title); // Reproduce automáticamente solo si está en modo Play
+                let afirmationToSpeak = language === "en" ? affirmation.affirmationEN : affirmation.affirmationES;
+                speak(afirmationToSpeak); // Reproduce automáticamente solo si está en modo Play
             }
         }
     };
 
-    const renderItem = ({ item }: any) => (
+    const renderItem = ({ item }: { item: Affirmation }) => (
         <View style={styles.page}>
-            <View style={{ backgroundColor: "#faeddeDD", borderRadius: 10, borderWidth: 0.5 }}>
-                <Text style={{ ...FONTS.usernameText, marginVertical: 13, marginHorizontal: 10 }}>{item.title}</Text>
+            <View style={{ backgroundColor: "#faeddeDD", borderRadius: 10, borderWidth: 0.5, marginHorizontal: 8 }}>
+                <Text style={{ ...FONTS.usernameText, marginVertical: 13, marginHorizontal: 10 }}>{language === "en" ? item.affirmationEN : item.affirmationES}</Text>
             </View>
         </View>
     );
@@ -141,10 +118,10 @@ export default function App() {
 
             <Text style={{ ...FONTS.affirmationHeader, marginTop: top + 13, marginBottom: 3, position: "absolute", width: "100%", textAlign: "center", color: COLORS.secondary }}>Relationships and Connection</Text>
 
-            {/* FlatList con Frases */}
+            {/* FlatList con Afirmaciones */}
             <FlatList
                 ref={flatListRef}
-                data={frases}
+                data={selectedAffirmations}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 pagingEnabled
@@ -206,8 +183,8 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     page: {
-        height: height,
-        width: width,
+        height: SIZES.height,
+        width: SIZES.width,
         justifyContent: 'center',
         alignItems: 'center',
     },

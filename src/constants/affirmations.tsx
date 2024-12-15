@@ -373,8 +373,8 @@ export const affirmationsGeneral: Affirmation[] = [
     },
     {
         id: "0038",
-        affirmationEN: "I am worthy of all the good things life has to offer",
-        affirmationES: "Soy digno de todas las cosas buenas que la vida ofrece",
+        affirmationEN: "I choose peace over worry",
+        affirmationES: "Elijo la paz en lugar de la preocupación",
         isFavorite: false,
         category: "GENERAL",
         createdBy: "SYSTEM",
@@ -423,8 +423,8 @@ export const affirmationsGeneral: Affirmation[] = [
     },
     {
         id: "0043",
-        affirmationEN: "I embrace every opportunity for growth",
-        affirmationES: "Abrazo cada oportunidad de crecimiento",
+        affirmationEN: "I am grateful for all that I have",
+        affirmationES: "Estoy agradecido por todo lo que tengo",
         isFavorite: false,
         category: "GENERAL",
         createdBy: "SYSTEM",

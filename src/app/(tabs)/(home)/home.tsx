@@ -7,6 +7,9 @@ import { router } from 'expo-router';
 import { COLORS, FONTS, images, SIZES } from '@/src/constants'
 import { WeeklyCard, WelcomeText } from '@/src/components/home';
 import AffirmationCard from '@/src/components/home/AffirmationCard';
+import { generateRandomAffirmations } from '@/src/utils/generateRandomAffirmations';
+import { affirmationsGeneral } from '@/src/constants/affirmations';
+import { useAffirmations } from '@/src/store/useAffirmations';
 
 const data = [
     { id: '1', title: 'Música', image: images.onBoard1, color: '#FFB3BA', affirmationFormat: "text" },
@@ -25,6 +28,7 @@ const data = [
 
 const Home = () => {
     const isFocused = useIsFocused();
+    const { setSelectedAffirmations } = useAffirmations();
     console.log(isFocused)
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.primaryLighter }}>
@@ -84,6 +88,9 @@ const Home = () => {
                         affirmationFormat={item.affirmationFormat as "text" | "audio"}
                         onPress={() => {
                             //router.push("/affirmationscroll");
+                            const affirmations = generateRandomAffirmations(affirmationsGeneral, 30);
+                            setSelectedAffirmations(affirmations);
+                            console.log("Affirmations", affirmations)
                             console.log(item.title)
                         }}
                     />

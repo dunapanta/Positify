@@ -24,7 +24,7 @@ const AffirmationCard = ({ affirmationFormat, title, image, color, onPress }: Af
                activeOpacity={0.8}
                 onPress={() => {
                     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    //onPress();
+                    onPress();
                 }}
             >
                 <Text style={styles.title}>{title}</Text>
