@@ -8,7 +8,7 @@ import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
 import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { useAffirmations } from '@/src/store/useAffirmations';
 import { useStorage } from '@/src/store';
 import { Affirmation } from '@/src/interfaces/affirmationsInterface';
@@ -22,11 +22,19 @@ export default function App() {
 
     const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
     const status = useAudioPlayerStatus(player);
-    const flatListRef = useRef(null);
+    const flatListRef = useRef<FlatList<Affirmation>>(null);
     const { top } = useSafeAreaInsets();
     player.volume = 0.43
     player.loop = true;
     //console.log(status);
+
+    useFocusEffect(
+        React.useCallback(() => {
+            if (flatListRef.current) {
+                flatListRef.current.scrollToIndex({ index: 0, animated: false });
+            }
+        }, [])
+    );
 
     useEffect(() => {
         player.play();
