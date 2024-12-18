@@ -64,6 +64,10 @@
   },
   "affirmations": {
     "general1": "Afirmaciones Diarias",
-    "general2": "Audio de Afirmaciones"
+    "general2": "Audio de Afirmaciones",
+    "selfLove1": "Aceptación Personal",
+    "selfLove2": "Elevar la autoestima",
+    "abundance1": "Manifestar Abundancia",
+    "abundance2": "Mentalidad de Abundancia"
   }
 }

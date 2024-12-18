@@ -8,6 +8,10 @@ const onBoard8 = require("@/src/assets/images/onBoard/onBoarding8.webp");
 const onBoardBackground = require("@/src/assets/images/onBoard/onBoardBackground.webp");
 const homeBackground = require("@/src/assets/images/ui/homeBackground.webp");
 const weekly1 = require("@/src/assets/images/ui/weekly1.webp");
+const selfAcceptance = require("@/src/assets/images/affirmations/self-acceptance.webp");
+const selfEsteem = require("@/src/assets/images/affirmations/self-esteem.webp");
+const abundanceMindset = require("@/src/assets/images/affirmations/abundance_mindset.webp");
+const manifestingAbundance = require("@/src/assets/images/affirmations/manifesting_abundance.webp");
 
 export default {
     onBoard1,
@@ -20,4 +24,8 @@ export default {
     onBoardBackground,
     homeBackground,
     weekly1,
+    selfAcceptance,
+    selfEsteem,
+    abundanceMindset,
+    manifestingAbundance,
 };

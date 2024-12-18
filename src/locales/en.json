@@ -64,6 +64,10 @@
   },
   "affirmations": {
     "general1": "Daily Affirmations",
-    "general2": "Affirmations Audio"
+    "general2": "Affirmations Audio",
+    "selfLove1": "Self-Acceptance",
+    "selfLove2": "Boost self-esteem",
+    "abundance1": "Manifesting Abundance",
+    "abundance2": "Abundance Mindset" 
   }
 }
