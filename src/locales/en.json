@@ -61,5 +61,9 @@
     "weeklyLabel": "New Affirmation",
     "weeklyTitle": "Your Weekly Affirmation:",
     "weeklyTopic": "Peace begins within"
+  },
+  "affirmations": {
+    "general1": "Daily Affirmations",
+    "general2": "Affirmations Audio"
   }
 }

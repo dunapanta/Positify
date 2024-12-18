@@ -61,5 +61,9 @@
     "weeklyLabel": "Nueva Afirmación",
     "weeklyTitle": "Tu Afirmación de la Semana:",
     "weeklyTopic": "La paz interior"
+  },
+  "affirmations": {
+    "general1": "Afirmaciones Diarias",
+    "general2": "Audio de Afirmaciones"
   }
 }

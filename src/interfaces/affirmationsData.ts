@@ -16,3 +16,19 @@ export enum AffirmationsCategories {
     STRESS_MANAGEMENT = "STRESS_MANAGEMENT",
     MINDFULNESS = "MINDFULNESS",
 }
+
+export enum AffirmationsFormats {
+    TEXT = "text",
+    AUDIO = "audio",
+    RECORDED_AUDIO = "recorded_audio",
+}
+
+export interface AffirmationsCardData {
+    id: string;
+    title: string;
+    description: string;
+    category: AffirmationsCategories;
+    color: string;
+    affirmationFormat: AffirmationsFormats;
+    image: any;
+}
