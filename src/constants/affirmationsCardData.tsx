@@ -56,4 +56,22 @@ export const affirmationsCardData: AffirmationsCardData[] = [
         affirmationFormat: AffirmationsFormats.AUDIO,
         image: require("@/src/assets/images/affirmations/abundance_mindset.webp"),
     },
+    {
+        id: "confidenceAffirmation1",
+        title: "affirmations.confidence1",
+        description: "Embrace who you are with kindness and understanding. Cultivate inner peace by accepting your strengths and imperfections, fostering a deeper sense of self-worth and personal growth",
+        category: AffirmationsCategories.CONFIDENCE,
+        color: COLORS.weeklyColor7,
+        affirmationFormat: AffirmationsFormats.TEXT,
+        image: require("@/src/assets/images/affirmations/fearless.webp"),
+    },
+    {
+        id: "confidenceAffirmation2",
+        title: "affirmations.confidence2",
+        description: "Unlock your potential by believing in yourself and your abilities. Embrace your strengths and overcome your fears to achieve your goals and dreams",
+        category: AffirmationsCategories.CONFIDENCE,
+        color: COLORS.weeklyColor8,
+        affirmationFormat: AffirmationsFormats.AUDIO,
+        image: require("@/src/assets/images/affirmations/unlock_potential.webp"),
+    },
 ]

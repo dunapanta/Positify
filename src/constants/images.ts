@@ -12,6 +12,8 @@ const selfAcceptance = require("@/src/assets/images/affirmations/self-acceptance
 const selfEsteem = require("@/src/assets/images/affirmations/self-esteem.webp");
 const abundanceMindset = require("@/src/assets/images/affirmations/abundance_mindset.webp");
 const manifestingAbundance = require("@/src/assets/images/affirmations/manifesting_abundance.webp");
+const fearless = require("@/src/assets/images/affirmations/fearless.webp");
+const unlockPotential = require("@/src/assets/images/affirmations/unlock_potential.webp");
 
 export default {
     onBoard1,
@@ -28,4 +30,6 @@ export default {
     selfEsteem,
     abundanceMindset,
     manifestingAbundance,
+    fearless,
+    unlockPotential,
 };
