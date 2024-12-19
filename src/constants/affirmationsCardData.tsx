@@ -31,7 +31,7 @@ export const affirmationsCardData: AffirmationsCardData[] = [
     },
     {
         id: "selfLoveAffirmation2",
-        title: "affirmations.selfLove1",
+        title: "affirmations.selfLove2",
         description: "Self-esteem is the foundation of a healthy self-image. It is the belief in your own worth and abilities, and the confidence to pursue your goals and dreams",
         category: AffirmationsCategories.SELF_LOVE,
         color: COLORS.weeklyColor4,
