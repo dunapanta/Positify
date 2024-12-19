@@ -16,6 +16,8 @@ const fearless = require("@/src/assets/images/affirmations/fearless.webp");
 const unlockPotential = require("@/src/assets/images/affirmations/unlock_potential.webp");
 const healthyBody = require("@/src/assets/images/affirmations/healthy_body.webp");
 const improveMentalHealth = require("@/src/assets/images/affirmations/improve_mental_health.webp");
+const conflictResolution = require("@/src/assets/images/affirmations/conflict_resolution.webp");
+const effectiveCommunication = require("@/src/assets/images/affirmations/effective_communication.webp");
 
 export default {
     onBoard1,
@@ -36,4 +38,6 @@ export default {
     unlockPotential,
     healthyBody,
     improveMentalHealth,
+    conflictResolution,
+    effectiveCommunication,
 };
