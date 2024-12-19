@@ -10,25 +10,14 @@ import AffirmationCard from '@/src/components/home/AffirmationCard';
 import { generateRandomAffirmations } from '@/src/utils/generateRandomAffirmations';
 import { affirmationsGeneral } from '@/src/constants/affirmations';
 import { useAffirmations } from '@/src/store/useAffirmations';
+import { affirmationsCardData } from '@/src/constants/affirmationsCardData';
+import { useTranslation } from 'react-i18next';
 
-const data = [
-    { id: '1', title: 'Música', image: images.onBoard1, color: '#FFB3BA', affirmationFormat: "text" },
-    { id: '2', title: 'Podcasts', image: images.onBoard2, color: '#FFDFBA', affirmationFormat: "audio" },
-    { id: '3', title: 'Eventos en vivo', image: images.onBoard3, color: '#FFFFBA', affirmationFormat: "text" },
-    { id: '4', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#BAFFC9', affirmationFormat: "text" },
-    { id: '5', title: 'Música', image: images.onBoard1, color: '#BAE1FF', affirmationFormat: "audio" },
-    { id: '6', title: 'Podcasts', image: images.onBoard2, color: '#D5AAFF', affirmationFormat: "text" },
-    { id: '7', title: 'Eventos en vivo', image: images.onBoard3, color: '#FFCCE5', affirmationFormat: "audio" },
-    { id: '8', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#E6FFFA', affirmationFormat: "text" },
-    { id: '9', title: 'Música', image: images.onBoard1, color: '#FDE1FF', affirmationFormat: "text" },
-    { id: '10', title: 'Podcasts', image: images.onBoard2, color: '#FFF5BA', affirmationFormat: "text" },
-    { id: '11', title: 'Eventos en vivo', image: images.onBoard3, color: '#C3FBD8', affirmationFormat: "text" },
-    { id: '12', title: 'Nuevos lanzamientos', image: images.onBoard4, color: '#BFFCC6', affirmationFormat: "text" },
-];
 
 const Home = () => {
     const isFocused = useIsFocused();
     const { setSelectedAffirmations } = useAffirmations();
+    const { t } = useTranslation();
     console.log(isFocused)
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.primaryLighter }}>
@@ -78,11 +67,11 @@ const Home = () => {
                 <Text style={{ ...FONTS.h3, marginTop: 12, marginBottom: 3 }}>Afirmaciones</Text>
             </View>
             <FlatList
-                data={data}
+                data={affirmationsCardData}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                     <AffirmationCard
-                        title={item.title}
+                        title={t(item.title)}
                         image={item.image}
                         color={item.color}
                         affirmationFormat={item.affirmationFormat as "text" | "audio"}
