@@ -35,7 +35,7 @@ export const affirmationsCardData: AffirmationsCardData[] = [
         description: "Self-esteem is the foundation of a healthy self-image. It is the belief in your own worth and abilities, and the confidence to pursue your goals and dreams",
         category: AffirmationsCategories.SELF_LOVE,
         color: COLORS.weeklyColor4,
-        affirmationFormat: AffirmationsFormats.AUDIO,
+        affirmationFormat: AffirmationsFormats.TEXT,
         image: require("@/src/assets/images/affirmations/self-esteem.webp"),
     },
     {
@@ -73,5 +73,23 @@ export const affirmationsCardData: AffirmationsCardData[] = [
         color: COLORS.weeklyColor8,
         affirmationFormat: AffirmationsFormats.AUDIO,
         image: require("@/src/assets/images/affirmations/unlock_potential.webp"),
+    },
+    {
+        id: "healthAffirmation1",
+        title: "affirmations.health1",
+        description: "Take care of your mental health by practicing self-care, mindfulness, and positive thinking. Nurture your emotional well-being and cultivate a sense of inner peace and balance",
+        category: AffirmationsCategories.HEALTH,
+        color: COLORS.weeklyColor9,
+        affirmationFormat: AffirmationsFormats.TEXT,
+        image: require("@/src/assets/images/affirmations/improve_mental_health.webp"),
+    },
+    {
+        id: "healthAffirmation2",
+        title: "affirmations.health2",
+        description: "Nourish your body with healthy food, exercise, and rest. Strengthen your physical health and well-being by taking care of your body and mind",
+        category: AffirmationsCategories.HEALTH,
+        color: COLORS.weeklyColor10,
+        affirmationFormat: AffirmationsFormats.TEXT,
+        image: require("@/src/assets/images/affirmations/healthy_body.webp"),
     },
 ]

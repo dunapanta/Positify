@@ -14,6 +14,8 @@ const abundanceMindset = require("@/src/assets/images/affirmations/abundance_min
 const manifestingAbundance = require("@/src/assets/images/affirmations/manifesting_abundance.webp");
 const fearless = require("@/src/assets/images/affirmations/fearless.webp");
 const unlockPotential = require("@/src/assets/images/affirmations/unlock_potential.webp");
+const healthyBody = require("@/src/assets/images/affirmations/healthy_body.webp");
+const improveMentalHealth = require("@/src/assets/images/affirmations/improve_mental_health.webp");
 
 export default {
     onBoard1,
@@ -32,4 +34,6 @@ export default {
     manifestingAbundance,
     fearless,
     unlockPotential,
+    healthyBody,
+    improveMentalHealth,
 };
