@@ -116,6 +116,13 @@ const Layout = () => {
                         href: null,
                     }}
                 />
+                {/* Afirmation Audio */}
+                <Tabs.Screen
+                    name="(affirmationaudio)"
+                    options={{
+                        href: null,
+                    }}
+                />
             </Tabs>
         </GestureHandlerRootView>
     );

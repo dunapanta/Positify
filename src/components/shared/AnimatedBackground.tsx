@@ -66,6 +66,7 @@ export default function AnimatedBackground() {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
+    //opacity: 0.3,
     top: 0,
     bottom: 0,
     left: 0,

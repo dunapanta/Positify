@@ -18,7 +18,6 @@ export default function App() {
     const { language } = useStorage();
     const [currentAffirmation, setCurrentAffirmation] = useState<Affirmation>(selectedAffirmations[0]);
     const [isSpeechPlaying, setIsSpeechPlaying] = useState(true);
-    const [sound, setSound] = useState(); // Para la música
 
     const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
     const status = useAudioPlayerStatus(player);
