@@ -28,12 +28,12 @@ const HeadspacePlayer: React.FC = () => {
     const dx = locationX - centerX;
     const dy = locationY - centerY;
 
-    const angle = Math.atan2(dy, dx) + Math.PI / 2;
-    const normalizedAngle = angle < 0 ? angle + 2 * Math.PI : angle;
-    const progress = normalizedAngle / (2 * Math.PI);
+    const angle = Math.atan2(dy, dx);
+    const normalizedAngle = angle >= 0 ? angle : 2 * Math.PI + angle;
+    const progress = (normalizedAngle / (2 * Math.PI)) * player.duration;
 
-    const newTime = player.duration * progress;
-    player.seekTo(newTime);
+    //const newTime = player.duration * progress;
+    player.seekTo(progress);
   };
 
   const getCircleProps = () => {
