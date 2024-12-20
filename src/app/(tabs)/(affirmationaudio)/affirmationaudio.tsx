@@ -30,14 +30,14 @@ const HeadspacePlayer: React.FC = () => {
 
     const angle = Math.atan2(dy, dx);
     const normalizedAngle = angle >= 0 ? angle : 2 * Math.PI + angle;
-    const progress = (normalizedAngle / (2 * Math.PI)) * player.duration;
+    const progress = (normalizedAngle / (2 * Math.PI)) * status.duration;
 
     //const newTime = player.duration * progress;
     player.seekTo(progress);
   };
 
   const getCircleProps = () => {
-    const progress = player.currentTime / player.duration || 0;
+    const progress = status.currentTime / status.duration || 0;
     const offset = CIRCUMFERENCE - progress * CIRCUMFERENCE;
     return { strokeDasharray: `${CIRCUMFERENCE}`, strokeDashoffset: offset };
   };
@@ -85,7 +85,7 @@ const HeadspacePlayer: React.FC = () => {
       </TouchableOpacity>
 
       <Text style={styles.progressText}>
-        {formatTime(player.currentTime)} / {formatTime(player.duration)}
+        {formatTime(status.currentTime)} / {formatTime(status.duration)}
       </Text>
     </View>
   );
