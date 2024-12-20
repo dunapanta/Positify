@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, GestureResponderEvent } from "react-native";
+import { router, useFocusEffect } from 'expo-router';
+import { View, Text, TouchableOpacity, StyleSheet, GestureResponderEvent, StatusBar } from "react-native";
 import { Svg, Circle } from "react-native-svg";
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
+import * as Haptics from "expo-haptics";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import AnimatedBackground from "@/src/components/shared/AnimatedBackground";
+import { COLORS, icons, SIZES } from "@/src/constants";
+import { IconButton } from "@/src/components/shared";
 
 const RADIUS = 100;
 const STROKE_WIDTH = 25;
@@ -12,12 +18,19 @@ const HeadspacePlayer: React.FC = () => {
   const player = useAudioPlayer(require("@/src/assets/audios/es_affirmation_general.mp3"));
   const status = useAudioPlayerStatus(player);
 
+  const { top } = useSafeAreaInsets();
+
   useEffect(() => {
     player.play();
   }, []);
 
   const playPauseAudio = () => {
     player.playing ? player.pause() : player.play();
+  };
+
+  const restartAudio = () => {
+    player.seekTo(0);
+    player.play();
   };
 
   const handleSeek = (event: GestureResponderEvent) => {
@@ -50,9 +63,31 @@ const HeadspacePlayer: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Básico</Text>
-      <Text style={styles.subtitle}>Sesión 2</Text>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={COLORS.primaryLighter}
+      />
       <AnimatedBackground />
+
+      {/* Back button */}
+      <IconButton
+        iconStyle={{
+          width: 25,
+          height: 25,
+        }}
+        containerStyle={{
+          ...styles.optionContainer,
+          //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
+          top: "5%",
+          marginTop: top,
+          left: '7%',
+        }}
+        onPress={() => {
+          Haptics.selectionAsync()
+          router.back();
+        }}
+        icon={icons.back}
+      />
 
       <View style={styles.gestureArea}>
         <Svg
@@ -84,6 +119,10 @@ const HeadspacePlayer: React.FC = () => {
         <Text style={styles.playButtonText}>{player.playing ? "||" : "▶"}</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.restartButton} onPress={restartAudio}>
+        <Text style={styles.restartButtonText}>Reiniciar</Text>
+      </TouchableOpacity>
+
       <Text style={styles.progressText}>
         {formatTime(status.currentTime)} / {formatTime(status.duration)}
       </Text>
@@ -92,9 +131,7 @@ const HeadspacePlayer: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#FDE4D5" },
-  title: { fontSize: 24, fontWeight: "bold", color: "#4A4A4A" },
-  subtitle: { fontSize: 18, color: "#7D7D7D", marginBottom: 20 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: COLORS.primaryLighter },
   gestureArea: { position: "relative" },
   playButton: {
     position: "absolute",
@@ -108,6 +145,27 @@ const styles = StyleSheet.create({
   },
   playButtonText: { color: "white", fontSize: 24, fontWeight: "bold" },
   progressText: { marginTop: 20, fontSize: 16, color: "#4A4A4A" },
+  restartButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#FFA500",
+    borderRadius: 5,
+  },
+  restartButtonText: { color: "white", fontSize: 16, fontWeight: "bold" },
+  optionContainer: {
+    position: 'absolute',
+    //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
+    right: '10%',
+    width: 40,
+    height: 40,
+    backgroundColor: COLORS.primaryLight,
+    borderRadius: SIZES.radius * 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.secondaryDarker,
+    zIndex: 10,
+  },
 });
 
 export default HeadspacePlayer;

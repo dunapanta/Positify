@@ -43,7 +43,7 @@ const Layout = () => {
     const { t } = useTranslation();
     const path = usePathname();
     const pathsHiddeTabBar = [
-        "/affirmationscroll",
+        "/affirmationscroll", "/affirmationaudio"
     ];
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>

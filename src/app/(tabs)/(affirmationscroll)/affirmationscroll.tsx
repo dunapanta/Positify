@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { router, useFocusEffect } from 'expo-router';
 import * as Haptics from "expo-haptics";
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
 import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
-import { router, useFocusEffect } from 'expo-router';
 import { useAffirmations } from '@/src/store/useAffirmations';
 import { useStorage } from '@/src/store';
 import { Affirmation } from '@/src/interfaces/affirmationsInterface';
@@ -202,20 +202,6 @@ const styles = StyleSheet.create({
         width: SIZES.width,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    backContainer: {
-        position: 'absolute',
-        //top: 50,  // Ajusta la posición del botón para que esté en la parte superior
-        right: '10%',
-        width: 43,
-        height: 43,
-        backgroundColor: COLORS.primaryLight,
-        borderRadius: SIZES.radius * 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 1,
-        borderColor: COLORS.secondaryDarker,
-        zIndex: 10,
     },
     optionContainer: {
         position: 'absolute',
