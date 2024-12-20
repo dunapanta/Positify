@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import AnimatedBackground from "@/src/components/shared/AnimatedBackground";
 import { COLORS, icons, SIZES } from "@/src/constants";
 import { IconButton } from "@/src/components/shared";
+import { AnimatedBackgroundOpacity } from "@/src/components/shared/AnimatedBackgroundOpacity";
 
 const RADIUS = 100;
 const STROKE_WIDTH = 25;
@@ -67,7 +68,7 @@ const HeadspacePlayer: React.FC = () => {
         barStyle="dark-content"
         backgroundColor={COLORS.primaryLighter}
       />
-      <AnimatedBackground />
+      <AnimatedBackgroundOpacity />
 
       {/* Back button */}
       <IconButton
@@ -78,7 +79,7 @@ const HeadspacePlayer: React.FC = () => {
         containerStyle={{
           ...styles.optionContainer,
           //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
-          top: "5%",
+          top: "4%",
           marginTop: top,
           left: '7%',
         }}
@@ -132,7 +133,7 @@ const HeadspacePlayer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: COLORS.primaryLighter },
-  gestureArea: { position: "relative" },
+  gestureArea: { position: "absolute" },
   playButton: {
     position: "absolute",
     top: "42%",
