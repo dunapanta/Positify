@@ -7,7 +7,7 @@ import * as Haptics from "expo-haptics";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import AnimatedBackground from "@/src/components/shared/AnimatedBackground";
-import { COLORS, icons, SIZES } from "@/src/constants";
+import { COLORS, FONTS, icons, SIZES } from "@/src/constants";
 import { IconButton } from "@/src/components/shared";
 import { AnimatedBackgroundOpacity } from "@/src/components/shared/AnimatedBackgroundOpacity";
 
@@ -16,16 +16,20 @@ const STROKE_WIDTH = 25;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const HeadspacePlayer: React.FC = () => {
-  const player = useAudioPlayer(require("@/src/assets/audios/es_affirmation_general.mp3"));
+  const player = useAudioPlayer(require("@/src/assets/audios/en_affirmation_general.mp3"));
   const status = useAudioPlayerStatus(player);
 
-  const { top } = useSafeAreaInsets();
+  //const { top } = useSafeAreaInsets();
 
   useEffect(() => {
     player.play();
   }, []);
 
   const playPauseAudio = () => {
+    Haptics.selectionAsync();
+    if (status.currentTime >= status.duration) {
+      restartAudio();
+    }
     player.playing ? player.pause() : player.play();
   };
 
@@ -65,6 +69,7 @@ const HeadspacePlayer: React.FC = () => {
   return (
     <View style={styles.container}>
       <StatusBar
+        translucent
         barStyle="dark-content"
         backgroundColor={COLORS.primaryLighter}
       />
@@ -80,7 +85,7 @@ const HeadspacePlayer: React.FC = () => {
           ...styles.optionContainer,
           //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
           top: "4%",
-          marginTop: top,
+          //marginTop: top,
           left: '7%',
         }}
         onPress={() => {
@@ -100,7 +105,7 @@ const HeadspacePlayer: React.FC = () => {
             cx={RADIUS + STROKE_WIDTH}
             cy={RADIUS + STROKE_WIDTH}
             r={RADIUS}
-            stroke="lightgray"
+            stroke="#BEBEBE"
             strokeWidth={STROKE_WIDTH}
             fill="none"
           />
@@ -108,7 +113,7 @@ const HeadspacePlayer: React.FC = () => {
             cx={RADIUS + STROKE_WIDTH}
             cy={RADIUS + STROKE_WIDTH}
             r={RADIUS}
-            stroke="orange"
+            stroke="#FF9100"
             strokeWidth={STROKE_WIDTH}
             fill="none"
             {...getCircleProps()}
@@ -116,15 +121,29 @@ const HeadspacePlayer: React.FC = () => {
         </Svg>
       </View>
 
-      <TouchableOpacity style={styles.playButton} onPress={playPauseAudio}>
-        <Text style={styles.playButtonText}>{player.playing ? "||" : "▶"}</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.restartButton} onPress={restartAudio}>
+      {<IconButton
+        iconStyle={{
+          width: 28,
+          height: 28,
+        }}
+        containerStyle={{
+          width: 65,
+          height: 65,
+          alignItems: "center",
+          justifyContent: "center",
+          borderWidth: 1,
+          borderColor: COLORS.secondaryLighter,
+          borderRadius: 50,
+          backgroundColor: COLORS.primaryDarker,
+        }}
+        onPress={playPauseAudio}
+        icon={player.playing ? icons.pause : icons.play}
+      />}
+      {/* <TouchableOpacity style={styles.restartButton} onPress={restartAudio}>
         <Text style={styles.restartButtonText}>Reiniciar</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <Text style={styles.progressText}>
+      <Text style={{ ...FONTS.subheader2, marginTop: 10 }}>
         {formatTime(status.currentTime)} / {formatTime(status.duration)}
       </Text>
     </View>
@@ -134,18 +153,6 @@ const HeadspacePlayer: React.FC = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: COLORS.primaryLighter },
   gestureArea: { position: "absolute" },
-  playButton: {
-    position: "absolute",
-    top: "42%",
-    backgroundColor: "black",
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  playButtonText: { color: "white", fontSize: 24, fontWeight: "bold" },
-  progressText: { marginTop: 20, fontSize: 16, color: "#4A4A4A" },
   restartButton: {
     marginTop: 20,
     padding: 10,
