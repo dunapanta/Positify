@@ -9,7 +9,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import AnimatedBackground from "@/src/components/shared/AnimatedBackground";
 import { COLORS, FONTS, icons, SIZES } from "@/src/constants";
 import { IconButton } from "@/src/components/shared";
-import { AnimatedBackgroundOpacity } from "@/src/components/shared/AnimatedBackgroundOpacity";
+import { AnimatedBackgroundKaleidoscope } from "@/src/components/shared/AnimatedBackgroundKaleidoscope";
 
 const RADIUS = 100;
 const STROKE_WIDTH = 25;
@@ -73,7 +73,7 @@ const HeadspacePlayer: React.FC = () => {
         barStyle="dark-content"
         backgroundColor={COLORS.primaryLighter}
       />
-      <AnimatedBackgroundOpacity />
+      <AnimatedBackgroundKaleidoscope />
 
       {/* Back button */}
       <IconButton
@@ -121,7 +121,7 @@ const HeadspacePlayer: React.FC = () => {
         </Svg>
       </View>
 
-      {<IconButton
+      {/*  {<IconButton
         iconStyle={{
           width: 28,
           height: 28,
@@ -138,14 +138,14 @@ const HeadspacePlayer: React.FC = () => {
         }}
         onPress={playPauseAudio}
         icon={player.playing ? icons.pause : icons.play}
-      />}
+      />} */}
       {/* <TouchableOpacity style={styles.restartButton} onPress={restartAudio}>
         <Text style={styles.restartButtonText}>Reiniciar</Text>
       </TouchableOpacity> */}
 
-      <Text style={{ ...FONTS.subheader2, marginTop: 10 }}>
+      {/* <Text style={{ ...FONTS.subheader2, marginTop: 10 }}>
         {formatTime(status.currentTime)} / {formatTime(status.duration)}
-      </Text>
+      </Text> */}
     </View>
   );
 };
