@@ -19,7 +19,7 @@ const HeadspacePlayer: React.FC = () => {
   const player = useAudioPlayer(require("@/src/assets/audios/en_affirmation_general.mp3"));
   const status = useAudioPlayerStatus(player);
 
-  //const { top } = useSafeAreaInsets();
+  const { top } = useSafeAreaInsets();
 
   useEffect(() => {
     player.play();
@@ -84,8 +84,8 @@ const HeadspacePlayer: React.FC = () => {
         containerStyle={{
           ...styles.optionContainer,
           //backgroundColor: isSpeechPlaying ? COLORS.primaryDark : COLORS.primaryLighter,
-          top: "4%",
-          //marginTop: top,
+          top: "3%",
+          marginTop: top,
           left: '7%',
         }}
         onPress={() => {
@@ -93,6 +93,29 @@ const HeadspacePlayer: React.FC = () => {
           router.back();
         }}
         icon={icons.back}
+      />
+
+
+      <Text style={{ ...FONTS.affirmationHeader, top: "3%", marginTop: top + 13, marginBottom: 3, position: "absolute", width: "100%", textAlign: "center", color: COLORS.secondary }}>Relationships and Connection</Text>
+
+      {/* Replay */}
+      <IconButton
+        icon={icons.replay}
+        onPress={() => {
+          Haptics.selectionAsync()
+          restartAudio()
+        }}
+        onLongPress={() => Haptics.selectionAsync()}
+        containerStyle={{
+          ...styles.optionContainer,
+          backgroundColor: player.playing ? COLORS.primaryDark : COLORS.primaryLighter,
+          top: top + 83,
+          //marginTop: 
+        }}
+        iconStyle={{
+          width: 25,
+          height: 25,
+        }}
       />
 
       <View style={styles.gestureArea}>
@@ -121,12 +144,13 @@ const HeadspacePlayer: React.FC = () => {
         </Svg>
       </View>
 
-      {/*  {<IconButton
+      {<IconButton
         iconStyle={{
           width: 28,
           height: 28,
         }}
         containerStyle={{
+          position: "absolute",
           width: 65,
           height: 65,
           alignItems: "center",
@@ -138,14 +162,14 @@ const HeadspacePlayer: React.FC = () => {
         }}
         onPress={playPauseAudio}
         icon={player.playing ? icons.pause : icons.play}
-      />} */}
+      />}
       {/* <TouchableOpacity style={styles.restartButton} onPress={restartAudio}>
         <Text style={styles.restartButtonText}>Reiniciar</Text>
       </TouchableOpacity> */}
 
-      {/* <Text style={{ ...FONTS.subheader2, marginTop: 10 }}>
+      <Text style={{ ...FONTS.subheader2, top: "55%", position: "absolute" }}>
         {formatTime(status.currentTime)} / {formatTime(status.duration)}
-      </Text> */}
+      </Text>
     </View>
   );
 };
