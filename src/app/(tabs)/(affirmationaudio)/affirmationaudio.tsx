@@ -109,7 +109,7 @@ const HeadspacePlayer: React.FC = () => {
         onLongPress={() => Haptics.selectionAsync()}
         containerStyle={{
           ...styles.optionContainer,
-          backgroundColor: player.playing ? COLORS.primaryDark : COLORS.primaryLighter,
+          backgroundColor: COLORS.primaryDark,
           top: top + 83,
           //marginTop: 
         }}

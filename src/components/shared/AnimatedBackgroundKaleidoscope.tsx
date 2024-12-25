@@ -41,25 +41,26 @@ const Kaleidoscope = ({ colors, size, duration, delay }: KaleidoscopeProps) => {
     ],
   }));
 
-  // Función para renderizar el patrón de triángulos
+  // Función para renderizar el patrón con Triángulo de Reuleaux
   const renderPattern = (count: number) => {
     const elements = [];
     for (let i = 0; i < count; i++) {
       const angle = (360 / count) * i;
+      const petalRadius = size / 2; // Radio del triángulo de Reuleaux
+      const petalAngle = 120; // Ángulo de 120 grados para simular las curvas del triángulo de Reuleaux
       elements.push(
         <Animated.View
           key={i}
           style={[
-            styles.triangle,
+            styles.petal,
             {
-              borderBottomColor: colors[i % colors.length],
+              backgroundColor: colors[i % colors.length],
               transform: [
                 { rotate: `${angle}deg` },
-                { translateY: -size / 2 },
+                { translateY: -petalRadius },
               ],
-              borderBottomWidth: size * 0.3,
-              borderLeftWidth: size * 0.15,
-              borderRightWidth: size * 0.15,
+              width: petalRadius * 2,
+              height: petalRadius * 2,
             },
           ]}
         />
@@ -81,26 +82,33 @@ export const AnimatedBackgroundKaleidoscope = () => {
 
   return (
     <View style={styles.container}>
-      {/* Kaleidoscope 1 */}
+      {/* Kaleidoscope 1: Amarillos pastel y naranja pastel */}
       <Kaleidoscope
-        colors={['#FFB3BA', '#FFDFBA', '#FFFFBA']} // Pastel pink, peach, yellow
-        size={width * 0.4}
+        colors={['#FFEB3B', '#FFCC80', '#FFD54F', '#FFB74D']} // Colores amarillos y naranjas pastel
+        size={width * 0.15}
         duration={16000} // Slower animation
         delay={0}
       />
-      {/* Kaleidoscope 2 */}
+      {/* Kaleidoscope 3: Verdes pastel */}
       <Kaleidoscope
-        colors={['#BAE1FF', '#BAFFC9', '#FFB3BA']} // Pastel blue, green, pink
-        size={width * 0.6}
+        colors={['#2B3A67', '#344E8B', '#4A6BB2']} // Colores verdes pastel
+        size={width * 0.35}
+        duration={20000} // Slowest animation
+        delay={4000}
+      />
+      {/* Kaleidoscope 2: Azules pastel y violetas pastel */}
+      <Kaleidoscope
+        colors={['#FBA55D4D', '#F8A44C4D', '#FC8E4E4D']} // Colores azules y violetas pastel
+        size={width * 0.25}
         duration={18000} // Slightly slower
         delay={2000}
       />
-      {/* Kaleidoscope 3 */}
+      {/* Kaleidoscope 1: Amarillos pastel y naranja pastel */}
       <Kaleidoscope
-        colors={['#E2BAFF', '#FFDFD3', '#D5BAFF']} // Pastel purple, coral, lilac
-        size={width * 0.8}
-        duration={20000} // Slowest animation
-        delay={4000}
+        colors={['#FADFC0CC', '#F9CEA3CC', '#FBE9D3CC']} // Colores amarillos y naranjas pastel
+        size={width * 0.15}
+        duration={16000} // Slower animation
+        delay={0}
       />
     </View>
   );
@@ -120,11 +128,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
   },
-  triangle: {
+  petal: {
     position: 'absolute',
-    width: 0,
-    height: 0,
-    borderLeftColor: 'transparent',
+    borderRadius: 50, // Redondeo para simular el borde curvado
+    backgroundColor: 'transparent',
+    borderWidth: 4, // Grosor del borde
+    borderColor: 'transparent', // Para que la parte de borde sea transparente
+    borderTopColor: 'transparent',
     borderRightColor: 'transparent',
+    borderLeftColor: 'transparent',
+    transformOrigin: 'center', // Asegura que las rotaciones sean alrededor del centro
   },
 });
