@@ -6,17 +6,18 @@ import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 import * as Haptics from "expo-haptics";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import AnimatedBackground from "@/src/components/shared/AnimatedBackground";
-import { COLORS, FONTS, icons, SIZES } from "@/src/constants";
+import { audios, COLORS, FONTS, icons, SIZES } from "@/src/constants";
 import { IconButton } from "@/src/components/shared";
 import { AnimatedBackgroundKaleidoscope } from "@/src/components/shared/AnimatedBackgroundKaleidoscope";
+import { useStorage } from "@/src/store";
 
 const RADIUS = 100;
 const STROKE_WIDTH = 25;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const HeadspacePlayer: React.FC = () => {
-  const player = useAudioPlayer(require("@/src/assets/audios/en_affirmation_general.mp3"));
+  const { language } = useStorage();
+  const player = useAudioPlayer(language === "es" ? audios.generalAudioES : audios.generalAudioEN);
   const status = useAudioPlayerStatus(player);
 
   const { top } = useSafeAreaInsets();
