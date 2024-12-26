@@ -79,6 +79,7 @@ export const SIZES = {
     welcomeUser: 28,
     subheader1: 17,
     subheader2: 14,
+    tabBarTitle: 13,
     // app dimensions
     width,
     height,
@@ -143,7 +144,12 @@ export const FONTS = {
         fontFamily: "Lato-Bold",
         fontSize: SIZES.subheader1,
         lineHeight: 17,
-    }
+    },
+    tabBarTitle: {
+        fontFamily: "Lato-Bold",
+        fontSize: SIZES.tabBarTitle,
+        lineHeight: 15,
+    },
 
 };
 

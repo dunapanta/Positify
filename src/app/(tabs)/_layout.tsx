@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import * as Haptics from "expo-haptics";
 
 import { COLORS, icons, images, FONTS, SIZES } from "@/src/constants";
+import { FontAwesome } from "@expo/vector-icons";
 
 /* const TabBarCustomButton = ({ onPress }: any) => {
     const { t } = useTranslation();
@@ -49,25 +50,25 @@ const Layout = () => {
         <GestureHandlerRootView style={{ flex: 1 }}>
             <Tabs
                 screenOptions={{
-                    tabBarShowLabel: false,
+                    tabBarShowLabel: true,
                     headerShown: false,
                     tabBarActiveTintColor: COLORS.activeTab,
-                    headerBackground: () => (
-                        <View style={{ height: 50, backgroundColor: COLORS.secondaryLighter }} />
-                    ),
+
+                    tabBarLabelStyle: {
+                        ...FONTS.tabBarTitle,
+
+                        //marginTop: 5,
+                    },
                     tabBarStyle: {
                         display: pathsHiddeTabBar.includes(path) ? "none" : "flex",
-                        position: "absolute",
-                        bottom: 5,
-                        left: 10,
-                        right: 10,
-                        borderWidth: 0.5,
-                        borderColor: COLORS.activeTab,
-                        elevation: 0,
-                        borderRadius: 15,
-                        backgroundColor: COLORS.white,
-                        borderTopColor: "transparent",
-                        height: SIZES.height * 0.09,
+
+
+                        /* backgroundColor: COLORS.white,
+                        position: "relative",
+                        height: 70,
+                        justifyContent: "center",
+                        alignItems: "center",
+ */
                     },
                 }}
             >
@@ -80,33 +81,60 @@ const Layout = () => {
                         },
                     })}
                     options={{
-                        tabBarIcon: ({ focused }) => (
-                            <View
+                        title: t("tabsNav.home"),
+                        tabBarLabel: ({ focused }) => (
+                            <Text
                                 style={{
-                                    justifyContent: "center",
-                                    alignItems: "center",
+                                    color: focused ? COLORS.activeTab : COLORS.secondary,
+                                    ...FONTS.tabBarTitle,
                                 }}
                             >
-                                <Image
-                                    source={icons.home}
-                                    resizeMode="contain"
-                                    style={{
-                                        width: 32,
-                                        height: 32,
-                                        tintColor: focused ? COLORS.activeTab : COLORS.secondary,
-                                    }}
-                                />
-                                <Text
-                                    style={{
-                                        color: focused ? COLORS.activeTab : COLORS.secondary,
-                                        ...FONTS.body4,
-                                    }}
-                                >
-                                    {t("tabsNav.home")}
-                                </Text>
-                            </View>
+                                {t("tabsNav.home")}
+                            </Text>
                         ),
+                        tabBarIcon: ({ color, focused }) => <Image
+                            source={icons.home}
+                            resizeMode="contain"
+                            style={{
+                                width: 25,
+                                height: 25,
+                                tintColor: focused ? COLORS.activeTab : COLORS.secondary,
+                            }}
+                        />,
                     }}
+                />
+
+                {/* Search */}
+                <Tabs.Screen
+                    name="(search)"
+                    listeners={() => ({
+                        tabPress: () => {
+                            Haptics.selectionAsync();
+                        },
+                    })}
+                    options={{
+                        title: t("tabsNav.search"),
+                        tabBarLabel: ({ focused }) => (
+                            <Text
+                                style={{
+                                    color: focused ? COLORS.activeTab : COLORS.secondary,
+                                    ...FONTS.tabBarTitle,
+                                }}
+                            >
+                                {t("tabsNav.search")}
+                            </Text>
+                        ),
+                        tabBarIcon: ({ color, focused }) => <Image
+                            source={icons.search}
+                            resizeMode="contain"
+                            style={{
+                                width: 22,
+                                height: 22,
+                                tintColor: focused ? COLORS.activeTab : COLORS.secondary,
+                            }}
+                        />,
+                    }}
+
                 />
 
                 {/* Afirmation Scroll */}

@@ -56,6 +56,12 @@
     "es": "Spanish",
     "voice": "Voice"
   },
+  "tabsNav": {
+    "home": "Home",
+    "search": "Search",
+    "create": "Create",
+    "settings": "Settings"
+  },
   "home": {
     "hello": "Hello",
     "weeklyLabel": "New Affirmation",

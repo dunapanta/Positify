@@ -50,6 +50,12 @@
     "question5Option4": "Verlas con imágenes inspiradoras",
     "question5Option5": "Recibir notificaciones diarias"
   },
+  "tabsNav": {
+    "home": "Inicio",
+    "search": "Buscar",
+    "create": "Crear",
+    "settings": "Ajustes"
+  },
   "langModal": {
     "language": "Idioma",
     "us": "Inglés",

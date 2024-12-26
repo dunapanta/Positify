@@ -85,7 +85,7 @@ const Home = () => {
                     />
                 )}
                 numColumns={2} // Configura dos columnas
-                contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: SIZES.height * 0.12 }}
+                contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: SIZES.height * 0.02 }}
             />
         </View>
     )

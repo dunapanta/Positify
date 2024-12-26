@@ -26,6 +26,7 @@ const speak = require("@/src/assets/icons/speak.png");
 const play = require("@/src/assets/icons/play.png");
 const pause = require("@/src/assets/icons/pause.png");
 const replay = require("@/src/assets/icons/replay.png");
+const search = require("@/src/assets/icons/search.png");
 
 export default {
     es,
@@ -55,5 +56,6 @@ export default {
     speak,
     play,
     pause,
-    replay
+    replay,
+    search,
 }
