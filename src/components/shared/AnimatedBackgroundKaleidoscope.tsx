@@ -91,21 +91,21 @@ export const AnimatedBackgroundKaleidoscope = () => {
       />
       {/* Kaleidoscope 3: Verdes pastel */}
       <Kaleidoscope
-        colors={['#2B3A67', '#344E8B', '#4A6BB2']} // Colores verdes pastel
+        colors={['#00CED1A0', '#20B2AAA0', '#5F9EA0A0']} // Colores verdes pastel
         size={width * 0.35}
         duration={20000} // Slowest animation
         delay={4000}
       />
       {/* Kaleidoscope 2: Azules pastel y violetas pastel */}
       <Kaleidoscope
-        colors={['#FBA55D4D', '#F8A44C4D', '#FC8E4E4D']} // Colores azules y violetas pastel
+        colors={['#FF149380', '#FF69B480', '#FFB6C180']} // Colores azules y violetas pastel
         size={width * 0.25}
         duration={18000} // Slightly slower
         delay={2000}
       />
       {/* Kaleidoscope 1: Amarillos pastel y naranja pastel */}
       <Kaleidoscope
-        colors={['#FADFC0CC', '#F9CEA3CC', '#FBE9D3CC']} // Colores amarillos y naranjas pastel
+        colors={['#FADFC0E6', '#F9CEA3E6', '#FBE9D3E6']} // Colores amarillos y naranjas pastel
         size={width * 0.15}
         duration={16000} // Slower animation
         delay={0}
