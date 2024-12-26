@@ -1,4 +1,4 @@
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, Pressable } from "react-native";
 import { Tabs, usePathname } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useTranslation } from "react-i18next";
@@ -59,16 +59,15 @@ const Layout = () => {
 
                         //marginTop: 5,
                     },
+                    tabBarButton: (props) => <Pressable {...props} android_ripple={{ color: COLORS.weeklyColor15 }} />,
                     tabBarStyle: {
                         display: pathsHiddeTabBar.includes(path) ? "none" : "flex",
+                        /*  backgroundColor: COLORS.white,
+                         position: "relative",
+                         height: 50,
+                         justifyContent: "center",
+                         alignItems: "center", */
 
-
-                        /* backgroundColor: COLORS.white,
-                        position: "relative",
-                        height: 70,
-                        justifyContent: "center",
-                        alignItems: "center",
- */
                     },
                 }}
             >
