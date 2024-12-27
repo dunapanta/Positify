@@ -168,7 +168,7 @@ const HeadspacePlayer: React.FC = () => {
         <Text style={styles.restartButtonText}>Reiniciar</Text>
       </TouchableOpacity> */}
 
-      <Text style={{ ...FONTS.subheader2, top: "55%", position: "absolute" }}>
+      <Text style={{ ...FONTS.subheader2, top: "73%", position: "absolute" }}>
         {formatTime(status.currentTime)} / {formatTime(status.duration)}
       </Text>
     </View>

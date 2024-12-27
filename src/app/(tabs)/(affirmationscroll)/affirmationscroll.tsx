@@ -6,7 +6,7 @@ import { router, useFocusEffect } from 'expo-router';
 import * as Haptics from "expo-haptics";
 //import { Audio } from 'expo-av'; // Para manejar la música (mp3)
 import AnimatedBackground from '@/src/components/shared/AnimatedBackground';
-import { COLORS, FONTS, icons, SIZES } from '@/src/constants';
+import { audios, COLORS, FONTS, icons, SIZES } from '@/src/constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconButton } from '@/src/components/shared';
 import { useAffirmations } from '@/src/store/useAffirmations';
@@ -19,7 +19,7 @@ export default function App() {
     const [currentAffirmation, setCurrentAffirmation] = useState<Affirmation>(selectedAffirmations[0]);
     const [isSpeechPlaying, setIsSpeechPlaying] = useState(true);
 
-    const player = useAudioPlayer(require('@/src/assets/audios/somemightsay.m4a')); // Cambia esto por la ubicación correcta de tu archivo mp3
+    const player = useAudioPlayer(audios.ambientInnerHarmony); // Cambia esto por la ubicación correcta de tu archivo mp3
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef<FlatList<Affirmation>>(null);
     const { top } = useSafeAreaInsets();
