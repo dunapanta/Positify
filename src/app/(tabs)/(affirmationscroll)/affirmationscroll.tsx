@@ -23,7 +23,7 @@ export default function App() {
     const status = useAudioPlayerStatus(player);
     const flatListRef = useRef<FlatList<Affirmation>>(null);
     const { top } = useSafeAreaInsets();
-    player.volume = 0.43
+    player.volume = 0.3
     player.loop = true;
     //console.log(status);
 
