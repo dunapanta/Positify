@@ -6328,4 +6328,14 @@ export const affirmationsManifestAbundance: Affirmation[] = [
         createdAt: "2024-12-14T00:33:36.618Z",
         updatedAt: "2024-12-14T00:33:36.618Z",
     },
+    {
+        id: "mab0096",
+        affirmationEN: "I attract lucrative opportunities that elevate my life",
+        affirmationES: "Atraigo oportunidades lucrativas que elevan mi vida",
+        isFavorite: false,
+        category: AffirmationsCategories.ABUNDANCE,
+        createdBy: "SYSTEM",
+        createdAt: "2024-12-14T00:33:36.618Z",
+        updatedAt: "2024-12-14T00:33:36.618Z",
+    },
 ]
